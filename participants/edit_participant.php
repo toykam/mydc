@@ -2,6 +2,7 @@
 <html lang="en">
 
 <?php require __DIR__.'/../includes/head.php'; ?>
+<?php $activatedMenu = 'participants'; ?>
 
 <body id="page-top">
 

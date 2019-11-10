@@ -12,7 +12,7 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
+      <li class="nav-item <?php echo ($activatedMenu == 'dashboard') ? 'active' : ''; ?>">
         <a class="nav-link" href="<?php echo site_url(); ?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
@@ -27,28 +27,28 @@
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
+      <li class="nav-item <?php echo ($activatedMenu == 'participants') ? 'active' : ''; ?>">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#users" aria-expanded="true" aria-controls="users">
           <i class="fas fa-fw fa-users"></i>
           <span>Participants</span>
         </a>
-        <div id="users" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="users" class="collapse <?php echo ($activatedMenu == 'participants') ? 'show' : ''; ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">User Management:</h6>
+            <h6 class="collapse-header">Participant Management:</h6>
             <!-- <a class="collapse-item" href="<?php //echo site_url('/participants') ?>">Dashboard</a> -->
-            <a class="collapse-item" href="<?php echo site_url('/participants/all_participants.php'); ?>">All Users</a>
-            <a class="collapse-item" href="<?php echo site_url('/participants/add_new_participant.php'); ?>">Add new user</a>
+            <a class="collapse-item" href="<?php echo site_url('/participants/all_participants.php'); ?>">All Participants</a>
+            <a class="collapse-item" href="<?php echo site_url('/participants/add_new_participant.php'); ?>">Add new Participant</a>
           </div>
         </div>
       </li>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
+      <li class="nav-item <?php echo ($activatedMenu == 'kitchen') ? 'active' : ''; ?>">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#kitchen" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-users"></i>
           <span>Kitchen</span>
         </a>
-        <div id="kitchen" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="kitchen" class="collapse <?php echo ($activatedMenu == 'kitchen') ? 'show' : ''; ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Kitchen Management:</h6>
             <a class="collapse-item" href="<?php echo site_url('/kitchen'); ?>">Dashboard</a>
@@ -60,12 +60,12 @@
       </li>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
+      <li class="nav-item <?php echo ($activatedMenu == 'security') ? 'active' : ''; ?>">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#security" aria-expanded="true" aria-controls="security">
           <i class="fas fa-fw fa-users"></i>
           <span>Security</span>
         </a>
-        <div id="security" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="security" class="collapse <?php echo ($activatedMenu == 'security') ? 'show' : ''; ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Security Management:</h6>
             <a class="collapse-item" href="<?php echo site_url('/security'); ?>">Dashboard</a>
@@ -77,12 +77,12 @@
       </li>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
+      <li class="nav-item <?php echo ($activatedMenu == 'programs') ? 'active' : ''; ?>">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#programmes" aria-expanded="true" aria-controls="programmes">
           <i class="fas fa-fw fa-users"></i>
           <span>Programs</span>
         </a>
-        <div id="programmes" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="programmes" class="collapse <?php echo ($activatedMenu == 'programs') ? 'show' : ''; ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Programme Management:</h6>
             <a class="collapse-item" href="<?php echo site_url('/programs'); ?>">Dashboard</a>
@@ -94,12 +94,12 @@
       </li>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
+      <li class="nav-item <?php echo ($activatedMenu == 'clinic') ? 'active' : ''; ?>">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#clinic" aria-expanded="true" aria-controls="clinic">
           <i class="fas fa-fw fa-users"></i>
           <span>Clinic</span>
         </a>
-        <div id="clinic" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="clinic" class="collapse <?php echo ($activatedMenu == 'clinic') ? 'show' : ''; ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Clinic Management:</h6>
             <a class="collapse-item" href="<?php echo site_url('/clinic'); ?>">Dashboard</a>

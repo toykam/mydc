@@ -2,7 +2,7 @@
 <html lang="en">
 
 <?php require __DIR__.'/../includes/head.php'; ?>
-
+<?php $activatedMenu = 'kitchen'; ?>
 <body id="page-top">
 
   <!-- Page Wrapper -->

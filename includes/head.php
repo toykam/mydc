@@ -1,4 +1,10 @@
-<?php require __DIR__.'/functions.php'; ?>
+<?php 
+  session_start();
+  require __DIR__.'/db.php'; 
+  require __DIR__.'/functions.php';
+  require __DIR__.'/participantManager.php';
+  require __DIR__.'/categoriesManager.php';
+?>
 <head>
 
   <meta charset="utf-8">
@@ -17,3 +23,4 @@
   <link href="<?php echo site_url('/css/sb-admin-2.min.css'); ?>" rel="stylesheet">
 
 </head>
+<?php $activatedMenu = 'dashboard'; ?>

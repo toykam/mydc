@@ -2,6 +2,8 @@
 <html lang="en">
 
 <?php require __DIR__.'/../includes/head.php'; ?>
+<?php $activatedMenu = 'participants'; ?>
+<?php $categories = getCategoriesBy(); ?>
 
 <body id="page-top">
 
@@ -43,70 +45,120 @@
                 <h6 class="m-0 font-weight-bold text-primary">Add new Participants</h6>
             </div>
             <div class="card-body">
-                <form class="form row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
+              <?php require __DIR__.'/../includes/msg.php'; ?>
+
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Kiddies</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Teenagers</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Adults</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" id="ud-tab" data-toggle="tab" href="#ud" role="tab" aria-controls="ud" aria-selected="false">Undergraduates</a>
+                </li>
+              </ul>
+              <div class="tab-content" id="myTabContent">
+
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                  <form msg="Registering new user" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
+                    <input name="reg_user" value="1" type="hidden"/>
+                    <div class="col-sm-12 form-group">
+                      <label>Select Category</label>
+                      <select name="category" class="form-control" id="category">
+                        <option>Select category</option>
+                        <?php foreach($categories as $key => $category) { ?>
+                          <option value="<?php echo strtolower($category['name']); ?>"><?php echo $category['name'] ?></option>
+                        <?php } ?>
+                      </select>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
+
+                    <div id="kiddies" class="forms">
+                      <?php include __DIR__.'/../includes/forms/kid.php'; ?>
                     </div>
 
                     <div class="col-md-12">
-                        <button class="btn btn-primary btn-lg">Add Participants</button>
+                      <button class="btn btn-primary btn-lg" id="submitBtn">Add Participants</button>
                     </div>
-                </form>
+                  </form>
+                </div>
+
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                  <form msg="Registering new user" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
+                    <input name="reg_user" value="1" type="hidden"/>
+                    <div class="col-sm-12 form-group">
+                      <label>Select Category</label>
+                      <select name="category" class="form-control" id="category">
+                        <option>Select category</option>
+                        <?php foreach($categories as $key => $category) { ?>
+                          <option value="<?php echo strtolower($category['name']); ?>"><?php echo $category['name'] ?></option>
+                        <?php } ?>
+                      </select>
+                    </div>
+
+                    <div id="teenagers" class="forms">
+                      <?php include __DIR__.'/../includes/forms/teen.php'; ?>
+                    </div>
+
+                    <div class="col-md-12">
+                      <button class="btn btn-primary btn-lg" id="submitBtn">Add Participants</button>
+                    </div>
+                  </form>
+                </div>
+                
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                  <form msg="Registering new user" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
+                    <input name="reg_user" value="1" type="hidden"/>
+                    <div class="col-sm-12 form-group">
+                      <label>Select Category</label>
+                      <select name="category" class="form-control" id="category">
+                        <option>Select category</option>
+                        <?php foreach($categories as $key => $category) { ?>
+                          <option value="<?php echo strtolower($category['name']); ?>"><?php echo $category['name'] ?></option>
+                        <?php } ?>
+                      </select>
+                    </div>
+
+
+                    <div id="adult" class="forms">
+                      <?php include __DIR__.'/../includes/forms/adult.php'; ?>
+                    </div>
+
+                    <div class="col-md-12">
+                      <button class="btn btn-primary btn-lg" id="submitBtn">Add Participants</button>
+                    </div>
+                  </form>
+                </div>
+
+                <div class="tab-pane fade" id="ud" role="tabpanel" aria-labelledby="ud-tab">
+                  <form msg="Registering new user" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
+                    <input name="reg_user" value="1" type="hidden"/>
+                    <div class="col-sm-12 form-group">
+                      <label>Select Category</label>
+                      <select name="category" class="form-control" id="category">
+                        <option>Select category</option>
+                        <?php foreach($categories as $key => $category) { ?>
+                          <option value="<?php echo strtolower($category['name']); ?>"><?php echo $category['name'] ?></option>
+                        <?php } ?>
+                      </select>
+                    </div>
+
+
+                    <div id="adult" class="forms">
+                      <?php include __DIR__.'/../includes/forms/ud.php'; ?>
+                    </div>
+
+                    <div class="col-md-12">
+                      <button class="btn btn-primary btn-lg" id="submitBtn">Add Participants</button>
+                    </div>
+                  </form>
+                </div>
+
+              </div>
             </div>
           </div>
 
@@ -158,6 +210,52 @@
   <script src="<?php echo site_url('/vendor/datatables/jquery.dataTables.min.js') ?>"></script>
   <script src="<?php echo site_url('/vendor/datatables/dataTables.bootstrap4.min.js') ?>"></script>
   <script src="<?php echo site_url('/js/demo/datatables-demo.js') ?>"></script>
+  <script>
+    $(document).ready(function() {
+      const category = $("#category");
+      category.change(function () {
+        let cat = $(this).val();
+        $('#reg_form').show();
+        $(`#${cat}`).show();
+      });
+
+      $('form').submit(function (e) {
+        e.preventDefault();
+        const msg = $(this).attr('msg');
+        const action = $(this).attr('action');
+        const method = $(this).attr('method');
+        const data = $(this).serializeArray();
+
+        const msgDisplay = $('#msg');
+        const msgDisplayText = $('#msgText');
+        const msgDisplayIcon = $('#msgIcon');
+
+        msgDisplayText.text(msg);
+        msgDisplayIcon.addClass('fa-spinner fa-spin');
+        msgDisplay.show();
+        // alert(JSON.stringify(data));
+        $.ajax({
+          url: action,
+          type: method,
+          data: data,
+          dataType: 'JSON',
+          success: (resData) => {
+            console.log(resData);
+            if (resData.status == 1) {
+              msgDisplayIcon.removeClass('fa-spinner fa-spin').addClass('fa-check-circle');
+            } else {
+              msgDisplayIcon.removeClass('fa-spinner fa-spin').addClass('fa-exclamation-triangle');
+            }
+            msgDisplay.addClass(resData.flag);
+            msgDisplayText.text(resData.msg);
+            // console.log(resData);
+          }, error: (error) => {
+            console.log(error);
+          }
+        });
+      });
+    });
+  </script>
 
 </body>
 
