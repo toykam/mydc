@@ -1,9 +1,11 @@
 <?php
     $conn = new mysqli("localhost", "root", "", "mydc");
 
-    $query_kitchen = "SELECT participants.first_name, participants.last_name, participants.gender, participants.category, participants.email, participants.class, facilitators.id FROM facilitators JOIN participants ON facilitators.pid=participants.id ";
+    $query_kitchen = "SELECT * FROM participants WHERE category='undergraduate' OR category='adult'";
     $sql_kit = $conn->query($query_kitchen);
+    // $result = mysqli_result()
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,67 +43,41 @@
           <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Facilitators</h1>
+          <h1 class="h3 mb-2 text-gray-800">Add New Program</h1>
           <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Facilitators <a href="add_facilitator.php" class="float-right btn btn-primary btn-sm"><i class="fas fa-plus"></i></a></h6>
-
+              <h6 class="m-0 font-weight-bold text-primary">Add New Program</h6>
             </div>
-
             <div class="card-body">
               <?php include __DIR__.'/../includes/msg.php'; ?>
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Gender</th>
-                      <th>E-mail</th>
-                      <th>Category</th>
-                      <th>Class</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Gender</th>
-                      <th>E-mail</th>
-                      <th>Category</th>
-                      <th>Class</th>
-                      <th>Action</th>
-                    </tr>
-                  </tfoot>
-
-                <?php
-                if ($sql_kit) {
-                    while ($path = $sql_kit->fetch_assoc()) {
-                        $id = $path['id'];
-                ?>
-                <tr>
-                  <td><?php echo $path['first_name']; ?></td>
-                  <td><?php echo $path['last_name']; ?></td>
-                  <td><?php echo $path['gender']; ?></td>
-                  <td><?php echo $path['email']; ?></td>
-                  <td><?php echo $path['category']; ?></td>
-                  <td><?php echo $path['class']; ?></td>
-                  <td>
-                    <a href="manager.php?delete=<?php echo $id;?>" class='btn btn-danger'>DELETE</a>
-                  </td>
-                </tr>
-
-            <?php }} ?>
-
-                  </tbody>
-                </table>
+              <div>
+                <form>
+                    <div class="form-group">
+                        <label for="" name="topic">Topic</label>
+                        <input class="form-control general" name="topic" placeholder="Topic" />
+                    </div>
+                    <div class="form-group">
+                        <label for="" name="time_start">Time Start</label>
+                        <input class="form-control general" name="time_start" placeholder="Time Start" />
+                    </div>
+                    <div class="form-group">
+                        <label for="" name="time_end">Time End</label>
+                        <input class="form-control general" name="time_end" placeholder="Time End" />
+                    </div>
+                    <div class="form-group">
+                        <label for="" name="day">Day</label>
+                        <input class="form-control general" name="day" placeholder="Day" />
+                    </div>
+                    <div class="col-md-12">
+                      <button class="btn btn-primary btn-lg" id="submitBtn">Add Program</button>
+                    </div>
+                    </form>
+                
               </div>
             </div>
-
           </div>
 
         </div>

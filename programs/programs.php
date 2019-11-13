@@ -1,8 +1,17 @@
 <?php
     $conn = new mysqli("localhost", "root", "", "mydc");
 
-    $query_kitchen = "SELECT participants.first_name, participants.last_name, participants.gender, participants.category, participants.email, participants.class, facilitators.id FROM facilitators JOIN participants ON facilitators.pid=participants.id ";
-    $sql_kit = $conn->query($query_kitchen);
+    // // require __DIR__.'/db.php';
+    // function getProgramsBy($data = null) {
+    //     //global $db;
+    //     return select('programs', '*', $data);
+    // }
+    // $programs = getProgramsBy(); 
+    // $activatedMenu = 'programs';
+    $sql = "SELECT * FROM programs;";
+    $result = mysqli_query($conn, $sql);
+    $resultCheck = mysqli_num_rows($result);
+
 ?>
 
 <!DOCTYPE html>
@@ -41,13 +50,13 @@
           <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Facilitators</h1>
+          <h1 class="h3 mb-2 text-gray-800">Programs</h1>
           <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Facilitators <a href="add_facilitator.php" class="float-right btn btn-primary btn-sm"><i class="fas fa-plus"></i></a></h6>
+              <h6 class="m-0 font-weight-bold text-primary">List of Programs <a href="add_programs.php" class="float-right btn btn-primary btn-sm"><i class="fas fa-plus"></i></a></h6>
 
             </div>
 
@@ -57,46 +66,36 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Gender</th>
-                      <th>E-mail</th>
-                      <th>Category</th>
-                      <th>Class</th>
+                      <th>Topic</th>
+                      <th>Time Start</th>
+                      <th>Time End</th>
+                      <th>Day</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Gender</th>
-                      <th>E-mail</th>
-                      <th>Category</th>
-                      <th>Class</th>
+                      <th>Topic</th>
+                      <th>Time Start</th>
+                      <th>Time End</th>
+                      <th>Day</th>
                       <th>Action</th>
                     </tr>
                   </tfoot>
-
-                <?php
-                if ($sql_kit) {
-                    while ($path = $sql_kit->fetch_assoc()) {
-                        $id = $path['id'];
+                  
+                <?php if ($resultCheck > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
                 ?>
                 <tr>
-                  <td><?php echo $path['first_name']; ?></td>
-                  <td><?php echo $path['last_name']; ?></td>
-                  <td><?php echo $path['gender']; ?></td>
-                  <td><?php echo $path['email']; ?></td>
-                  <td><?php echo $path['category']; ?></td>
-                  <td><?php echo $path['class']; ?></td>
+                  <td><?php echo $row['topic']; ?></td>
+                  <td><?php echo $row['time_start']; ?></td>
+                  <td><?php echo $row['time_end']; ?></td>
+                  <td><?php echo $row['day']; ?></td>
                   <td>
                     <a href="manager.php?delete=<?php echo $id;?>" class='btn btn-danger'>DELETE</a>
                   </td>
                 </tr>
-
-            <?php }} ?>
-
+                    <?php }} ?>
                   </tbody>
                 </table>
               </div>
