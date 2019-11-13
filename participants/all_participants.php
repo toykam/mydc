@@ -80,8 +80,17 @@
                         <td><?php echo $participant['category']; ?></td>
                         <td><?php echo $participant['gender']; ?></td>
                         <td>
-                          <a class="btn btn-sm btn-primary" href="<?php echo site_url('/participants/view_participant.php?id='.$participant['id']) ?>"><i class="fas fa-eye"></i></a>
-                          <a class="btn btn-sm btn-danger" href="<?php echo site_url('/participants/delete_participant.php?id='.$participant['id']) ?>"><i class="fas fa-trash"></i></a>
+                        <div class="dropdown">
+                          <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            option
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="btn btn-sm btn-primary dropdown-item" href="<?php echo site_url('/participants/view_participant.php?id='.$participant['id']) ?>"><i class="fas fa-eye"></i> View</a>
+                          <a class="btn btn-sm btn-danger dropdown-item" href="<?php echo site_url('/participants/delete_participant.php?id='.$participant['id']) ?>"><i class="fas fa-trash"></i> Delete</a>
+                          <a class="btn btn-sm btn-warning dropdown-item" href="<?php echo site_url('/participants/edit_participant.php?id='.$participant['id']) ?>"><i class="fas fa-edit"></i> Edit</a>
+                          </div>
+                        </div>
+                          
                         </td>
                       </tr>
                     <?php } ?>

@@ -3,7 +3,7 @@
 
 <?php require __DIR__.'/../includes/head.php'; ?>
 <?php $activatedMenu = 'participants'; ?>
-<?php $categories = getCategoriesBy(); ?>
+<?php $categories = getCategoriesBy(); $participantData = null; ?>
 
 <body id="page-top">
 
@@ -210,7 +210,7 @@
   <script src="<?php echo site_url('/vendor/datatables/jquery.dataTables.min.js') ?>"></script>
   <script src="<?php echo site_url('/vendor/datatables/dataTables.bootstrap4.min.js') ?>"></script>
   <script src="<?php echo site_url('/js/demo/datatables-demo.js') ?>"></script>
-  <script src="<?php echo site_url('/js/demo/forms.js') ?>"></script>
+  <script src="<?php echo site_url('/js/forms.js') ?>"></script>
   <script>
     $(document).ready(function() {
       const category = $("#category");
