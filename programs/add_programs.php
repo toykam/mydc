@@ -1,7 +1,13 @@
 <?php
     $conn = new mysqli("localhost", "root", "", "mydc");
+    $user = 'ADMIN';
+    
+    if (isset($_POST['submit'])) {
+      $sql  = "INSERT INTO programs (`id`,`topic`,`venue`,`time_start`,`time_end`,`day`,`created_at`) VALUES(NULL,'".$_POST['topic']."','".$_POST['venue']."','".$_POST['time_start']."','".$_POST['time_end']."','".$_POST['day']."','".$user."')";
 
-    $_POST['add_program']
+      $conn->query($sql);
+      header('Location:programs.php');
+    }
 ?>
 
 
@@ -58,19 +64,23 @@
                         <input class="form-control general" name="topic" placeholder="Topic" />
                     </div>
                     <div class="form-group">
+                        <label for="" name="venue">Venue</label>
+                        <input class="form-control general" name="venue" placeholder="Venue" />
+                    </div>
+                    <div class="form-group">
                         <label for="" name="time_start">Time Start</label>
-                        <input class="form-control general" name="time_start" placeholder="Time Start" />
+                        <input class="form-control general" name="time_start" type="datetime-local" placeholder="Time Start" />
                     </div>
                     <div class="form-group">
                         <label for="" name="time_end">Time End</label>
-                        <input class="form-control general" name="time_end" placeholder="Time End" />
+                        <input class="form-control general" name="time_end" type="datetime-local" placeholder="Time End" />
                     </div>
                     <div class="form-group">
                         <label for="" name="day">Day</label>
                         <input class="form-control general" name="day" placeholder="Day" />
                     </div>
                     <div class="col-md-12">
-                      <button class="btn btn-primary btn-lg" id="submitBtn">Add Program</button>
+                      <button class="btn btn-primary btn-lg" name="submit" type="submit" id="submitBtn">Add Program</button>
                     </div>
                     </form>
                 
