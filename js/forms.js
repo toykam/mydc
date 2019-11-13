@@ -21,11 +21,12 @@ $('form').submit(function (e) {
       success: (resData) => {
         console.log(resData);
         if (resData.status == 1) {
-          msgDisplayIcon.removeClass('fa-spinner fa-spin').addClass('fa-check-circle');
+          msgDisplayIcon.removeClass('fa-spinner fa-spin fa-exclamation-triangle').addClass('fa-check-circle');
         } else {
           msgDisplayIcon.removeClass('fa-spinner fa-spin').addClass('fa-exclamation-triangle');
         }
-        msgDisplay.addClass(resData.flag);
+        msgDisplay.attr('class', '');
+        msgDisplay.addClass(`alert ${resData.flag}`);
         msgDisplayText.text(resData.msg);
         // console.log(resData);
       }, error: (error) => {

@@ -4,7 +4,11 @@
     <div class="col-md-4">
     <h4>Personal Information</h4>
     <div class="form-group">
+
         <input class="form-control general" name="first_name" placeholder="Participants First Name" value=""/>
+
+        <input class="form-control general" name="first_name" placeholder="Participants First Name" value="<?php echo ($participantData) ? $participantData['first_name'] : ''; ?>"/>
+
     </div>
     <div class="form-group">
         <input class="form-control general" name="last_name" placeholder="Participants Last Name" />

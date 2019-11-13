@@ -3,7 +3,7 @@
 
 <?php require __DIR__.'/../includes/head.php'; ?>
 <?php $activatedMenu = 'participants'; ?>
-<?php $categories = getCategoriesBy(); ?>
+<?php $categories = getCategoriesBy(); $participantData = null; ?>
 
 <body id="page-top">
 
