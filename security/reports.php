@@ -49,21 +49,21 @@
                   <thead>
                     <tr>
                       <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
+                      <th>Pid</th>
+                      <th>Post</th>
+                      <th>Duty</th>
+                      <th>Time</th>
+                      <th>Report</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
                       <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
+                      <th>Pid</th>
+                      <th>Post</th>
+                      <th>Duty</th>
+                      <th>Time</th>
+                      <th>Report</th>
                     </tr>
                   </tfoot>
                   <tbody>
