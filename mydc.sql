@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2019 at 03:07 PM
+-- Generation Time: Nov 13, 2019 at 04:48 PM
 -- Server version: 10.4.8-MariaDB
--- PHP Version: 7.1.32
+-- PHP Version: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -63,29 +63,6 @@ INSERT INTO `admins` (`id`, `aname`, `aemail`, `ausername`, `apassword`, `phone_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
---
-
-CREATE TABLE `categories` (
-  `id` int(11) NOT NULL,
-  `name` varchar(225) NOT NULL,
-  `description` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `categories`
---
-
-INSERT INTO `categories` (`id`, `name`, `description`, `created_at`) VALUES
-(1, 'Kiddies', 'Omo kekeeke', '2019-11-10 12:34:55'),
-(2, 'Teenager', 'Omo Kekere Odo', '2019-11-10 12:34:55'),
-(3, 'Undergraduate', 'Odo', '2019-11-10 12:34:55'),
-(4, 'adult', 'Agba', '2019-11-10 12:34:55');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `clinic`
 --
 
@@ -99,15 +76,25 @@ CREATE TABLE `clinic` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `departments`
+-- Table structure for table `facilitators`
 --
 
-CREATE TABLE `departments` (
+CREATE TABLE `facilitators` (
   `id` int(11) NOT NULL,
-  `name` varchar(225) NOT NULL,
-  `description` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `pid` int(255) NOT NULL,
+  `added_by` varchar(255) NOT NULL DEFAULT 'admin',
+  `created_at` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `facilitators`
+--
+
+INSERT INTO `facilitators` (`id`, `pid`, `added_by`, `created_at`) VALUES
+(14, 770, 'admin', '2019-11-13 14:10:25.972919'),
+(15, 605, 'admin', '2019-11-13 14:59:20.433355'),
+(16, 180, 'admin', '2019-11-13 15:06:43.789153'),
+(17, 1082, 'admin', '2019-11-13 15:06:59.191198');
 
 -- --------------------------------------------------------
 
@@ -1364,10 +1351,34 @@ INSERT INTO `participants` (`id`, `first_name`, `last_name`, `gender`, `category
 (1083, 'AWWAL', 'HAMEEDAH', 'female', 'teenager', '10, COMMUNITY STREET OKE IRA OGBA LAGOS', '', '', 'Sss 1', '', '', '', '', '', '', '', '4000', '', 'bank', 0, '', '2018-12-30 17:30:36', 'azikiri'),
 (1084, 'Shotunde', 'Sharafa oladeinde', 'male', 'adult', '13, Pillar Avenue\r\nOke oriya  church  bus stop', 'shotundesharafa@gmail.com', '', '', '08072755711,09081755246', '', '', '', '', 'Ikorodu', '4', '', 'married', '', 7000, '', '2018-12-31 07:48:09', 'amodada'),
 (1085, 'Bashiru', 'Awoyejo', 'male', 'adult', '34 Cole street I-mate surulere', 'awoyejobashir1@gmail', '', 'SSCE', '08038904514', '', '', '', '', 'Surulere', '5', '6500', 'single', 'cash', 500, '', '2018-12-31 09:07:47', 'amodada'),
-(1086, 'Rufai', 'Azeezat', 'female', 'undergraduate', 'Ijede', 'rufaiazeezat2002@gmail.com', '', '100 level', '08171794490', '', '', '', '', 'Ijede', '', '', 'single', '', 5000, '', '2018-12-31 15:33:58', 'sahadatafolabi'),
-(1087, '', '', '', '', '', '', NULL, '', '', '', '', '', '', '', NULL, '', NULL, '', 0, '', '2019-11-10 17:03:31', ''),
-(1088, '', '', '', '', '', '', NULL, '', '', '', '', '', '', '', NULL, '', NULL, '', 0, '', '2019-11-10 17:03:35', ''),
-(1089, 'mfsdkjskdj', 'kjdskj', 'male', 'teenagers', 'kdsjkj', 'jsdkj@gmail.com', NULL, 'Nursery Class', 'klskjskj', 'kdjsjdk', '', 'kjdksj', '', 'kdsjksj', NULL, 'kdjsk', NULL, 'jdksdjk', 0, 'kjdsk', '2019-11-10 17:04:13', '');
+(1086, 'Rufai', 'Azeezat', 'female', 'undergraduate', 'Ijede', 'rufaiazeezat2002@gmail.com', '', '100 level', '08171794490', '', '', '', '', 'Ijede', '', '', 'single', '', 5000, '', '2018-12-31 15:33:58', 'sahadatafolabi');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `programs`
+--
+
+CREATE TABLE `programs` (
+  `id` int(11) NOT NULL,
+  `topic` varchar(255) NOT NULL,
+  `venue` varchar(255) NOT NULL,
+  `time_start` datetime(6) NOT NULL,
+  `time_end` datetime(6) NOT NULL,
+  `day` int(11) NOT NULL,
+  `created_at` int(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `programs`
+--
+
+INSERT INTO `programs` (`id`, `topic`, `venue`, `time_start`, `time_end`, `day`, `created_at`) VALUES
+(1, 'Program 1', '', '2019-11-13 08:00:00.000000', '2019-11-13 09:00:00.000000', 20191115, 0),
+(2, 'Program 1', '', '2019-11-13 08:00:00.000000', '2019-11-13 09:00:00.000000', 20191115, 0),
+(3, 'hhj', '', '2019-11-13 11:00:00.000000', '2019-11-14 12:00:00.000000', 0, 0),
+(4, 'hhj', '', '2019-11-13 11:00:00.000000', '2019-11-14 12:00:00.000000', 1, 0),
+(7, 'fds', 'fghjk', '2019-11-15 02:35:00.000000', '2019-11-23 15:46:00.000000', 5, 0);
 
 -- --------------------------------------------------------
 
@@ -1377,9 +1388,10 @@ INSERT INTO `participants` (`id`, `first_name`, `last_name`, `gender`, `category
 
 CREATE TABLE `workers` (
   `id` int(11) NOT NULL,
-  `pid` int(11) NOT NULL,
+  `pid` varchar(255) NOT NULL,
   `dep_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `post` varchar(55) NOT NULL,
+  `created_at` timestamp(6) NOT NULL DEFAULT current_timestamp(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1393,21 +1405,15 @@ ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `clinic`
 --
 ALTER TABLE `clinic`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `departments`
+-- Indexes for table `facilitators`
 --
-ALTER TABLE `departments`
+ALTER TABLE `facilitators`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1435,6 +1441,12 @@ ALTER TABLE `participants`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `programs`
+--
+ALTER TABLE `programs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `workers`
 --
 ALTER TABLE `workers`
@@ -1451,22 +1463,16 @@ ALTER TABLE `admins`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `categories`
---
-ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
 -- AUTO_INCREMENT for table `clinic`
 --
 ALTER TABLE `clinic`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `departments`
+-- AUTO_INCREMENT for table `facilitators`
 --
-ALTER TABLE `departments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `facilitators`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `in_out`
@@ -1490,7 +1496,13 @@ ALTER TABLE `market`
 -- AUTO_INCREMENT for table `participants`
 --
 ALTER TABLE `participants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1090;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1087;
+
+--
+-- AUTO_INCREMENT for table `programs`
+--
+ALTER TABLE `programs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `workers`
