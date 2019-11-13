@@ -72,6 +72,7 @@
             <a class="collapse-item" href="<?php echo site_url('/security/reports.php'); ?>">Reports</a>
             <a class="collapse-item" href="<?php echo site_url('/security/members.php'); ?>">Members</a>
             <a class="collapse-item" href="<?php echo site_url('/security/add_member.php'); ?>">Add new member</a>
+            <a class="collapse-item" href="<?php echo site_url('/security/post.php'); ?>">Assign Post</a>
           </div>
         </div>
       </li>

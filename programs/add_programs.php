@@ -1,9 +1,7 @@
 <?php
     $conn = new mysqli("localhost", "root", "", "mydc");
 
-    $query_kitchen = "SELECT * FROM participants WHERE category='undergraduate' OR category='adult'";
-    $sql_kit = $conn->query($query_kitchen);
-    // $result = mysqli_result()
+    $_POST['add_program']
 ?>
 
 
@@ -54,7 +52,7 @@
             <div class="card-body">
               <?php include __DIR__.'/../includes/msg.php'; ?>
               <div>
-                <form>
+                <form method="POST">
                     <div class="form-group">
                         <label for="" name="topic">Topic</label>
                         <input class="form-control general" name="topic" placeholder="Topic" />

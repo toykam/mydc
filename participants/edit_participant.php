@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <?php require __DIR__.'/../includes/head.php'; ?>
 <?php $activatedMenu = 'participants'; ?>
+<?php $categories = getCategoriesBy(); ?>
+<?php $participantData = getParticipantBy(['id' => $_GET['id']]); ?>
+
 
 <body id="page-top">
 
@@ -41,73 +43,211 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Edit Participants</h6>
+                <h6 class="m-0 font-weight-bold text-primary">
+                  <a class="back-btn btn btn-sm btn-primary text-light"><i class="fa fa-arrow-left"></i> back</a>
+                  Edit Participants
+                </h6>
             </div>
             <div class="card-body">
-                <form class="form row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
+              <?php require __DIR__.'/../includes/msg.php'; ?>
+              <?php //echo $participantData['first_name']; ?>
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link <?php echo ($participantData['category'] == 'kiddies') ? 'active' : 'disabled'; ?>" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Kiddies</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link  <?php echo ($participantData['category'] == 'teenager') ? 'active' : 'disabled'; ?>" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Teenagers</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link  <?php echo ($participantData['category'] == 'adult') ? 'active' : 'disabled'; ?>" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Adults</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link  <?php echo ($participantData['category'] == 'undergraduate') ? 'active' : 'disabled'; ?>" id="ud-tab" data-toggle="tab" href="#ud" role="tab" aria-controls="ud" aria-selected="false">Undergraduates</a>
+                </li>
+              </ul>
+
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade  <?php echo ($participantData['category'] == 'kiddies') ? 'active show' : ''; ?>" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                  <form msg="Registering new user" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
+                    <input name="reg_user" value="1" type="hidden"/>
+
+                  <form msg="Updating <?php echo $participantData['first_name'] ?> Data" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
+                    <input name="update_user" value="1" type="hidden"/>
+                    <input name="id" value="1" type="hidden" value="<?php $participantData['id'] ?>"/>
+
+                    <div class="col-sm-12 form-group">
+                      <label>Select Category</label>
+                      <select name="category" class="form-control" id="category">
+                        <option disabled selected>Select category</option>
+                        <?php foreach($categories as $key => $category) { ?>
+                          <option <?php echo ($participantData['category'] == $category['name']) ? 'selected' : ''; ?> value="<?php echo ($category['name']); ?>"><?php echo ucfirst($category['name']) ?></option>
+                        <?php } ?>
+                      </select>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="first_name" placeholder="Participants First Name" />
-                        </div>
+
+                    <div id="kiddies" class="forms">
+                      <?php include __DIR__.'/../includes/forms/kid.php'; ?>
                     </div>
 
                     <div class="col-md-12">
-                        <button class="btn btn-primary btn-lg">Add Participants</button>
+
+                      <button class="btn btn-primary btn-lg" id="submitBtn">Add Participants</button>
                     </div>
-                </form>
+                  </form>
+                </div>
+
+                <div class="tab-pane fade  <?php echo ($participantData['category'] == 'teenager') ? 'active show' : ''; ?>" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                  <form msg="Registering new user" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
+                    <input name="reg_user" value="1" type="hidden"/>
+                    <div class="col-sm-12 form-group">
+                      <label>Select Category</label>
+                      <select name="category" class="form-control" id="category">
+                        <option>Select category</option>
+                        <?php foreach($categories as $key => $category) { ?>
+                          <option <?php echo ($participantData['category'] == $category['name']) ? 'selected' : ''; ?> value="<?php echo ($category['name']); ?>"><?php echo ucfirst($category['name']) ?></option>
+                        <?php } ?>
+                      </select>
+                    </div>
+
+                    <div id="teenagers" class="forms">
+                      <?php include __DIR__.'/../includes/forms/teen.php'; ?>
+                    </div>
+
+                    <div class="col-md-12">
+                      <button class="btn btn-primary btn-lg" id="submitBtn">Add Participants</button>
+                    </div>
+                  </form>
+                </div>
+                
+                <div class="tab-pane fade  <?php echo ($participantData['category'] == 'adult') ? 'active show' : ''; ?>" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                  <form msg="Registering new user" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
+                    <input name="reg_user" value="1" type="hidden"/>
+                    <div class="col-sm-12 form-group">
+                      <label>Select Category</label>
+                      <select name="category" class="form-control" id="category">
+                        <option>Select category</option>
+                        <?php foreach($categories as $key => $category) { ?>
+                          <option <?php echo ($participantData['category'] == $category['name']) ? 'selected' : ''; ?> value="<?php echo ($category['name']); ?>"><?php echo ucfirst($category['name']) ?></option>
+                        <?php } ?>
+                      </select>
+                    </div>
+
+
+                    <div id="adult" class="forms">
+                      <?php include __DIR__.'/../includes/forms/adult.php'; ?>
+                    </div>
+
+                    <div class="col-md-12">
+                      <button class="btn btn-primary btn-lg" id="submitBtn">Add Participants</button>
+                    </div>
+                  </form>
+                </div>
+
+                <div class="tab-pane fade  <?php echo ($participantData['category'] == 'undergraduate') ? 'active show' : ''; ?>" id="ud" role="tabpanel" aria-labelledby="ud-tab">
+                  <form msg="Registering new user" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
+                    <input name="reg_user" value="1" type="hidden"/>
+                    <div class="col-sm-12 form-group">
+                      <label>Select Category</label>
+                      <select name="category" class="form-control" id="category">
+                        <option>Select category</option>
+                        <?php foreach($categories as $key => $category) { ?>
+                          <option <?php echo ($participantData['category'] == $category['name']) ? 'selected' : ''; ?> value="<?php echo strtolower($category['name']); ?>"><?php echo ucfirst($category['name']) ?></option>
+                        <?php } ?>
+                      </select>
+                    </div>
+
+
+                    <div id="adult" class="forms">
+                      <?php include __DIR__.'/../includes/forms/ud.php'; ?>
+                    </div>
+
+                    <div class="col-md-12">
+                      <button class="btn btn-primary btn-lg" id="submitBtn">Add Participants</button>
+                    </div>
+
+                      <button class="btn btn-primary btn-lg" id="submitBtn">Update Participants</button>
+                    </div>
+                  </form>
+                </div>
+
+                <div class="tab-pane fade  <?php echo ($participantData['category'] == 'teenager') ? 'active show' : ''; ?>" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                  <form msg="Updating <?php echo $participantData['first_name'] ?> Data" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
+                    <input name="update_user" value="1" type="hidden"/>
+                    <input name="id" value="1" type="hidden" value="<?php $participantData['id'] ?>"/>
+                    <div class="col-sm-12 form-group">
+                      <label>Select Category</label>
+                      <select name="category" class="form-control" id="category">
+                        <option>Select category</option>
+                        <?php foreach($categories as $key => $category) { ?>
+                          <option <?php echo ($participantData['category'] == $category['name']) ? 'selected' : ''; ?> value="<?php echo ($category['name']); ?>"><?php echo ucfirst($category['name']) ?></option>
+                        <?php } ?>
+                      </select>
+                    </div>
+
+                    <div id="teenagers" class="forms">
+                      <?php include __DIR__.'/../includes/forms/teen.php'; ?>
+                    </div>
+
+                    <div class="col-md-12">
+                      <button class="btn btn-primary btn-lg" id="submitBtn">Update Participants</button>
+                    </div>
+                  </form>
+                </div>
+                
+                <div class="tab-pane fade  <?php echo ($participantData['category'] == 'adult') ? 'active show' : ''; ?>" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                  <form msg="Updating <?php echo $participantData['first_name'] ?> Data"  class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
+                    <input name="update_user" value="1" type="hidden"/>
+                    <input name="id" value="1" type="hidden" value="<?php $participantData['id'] ?>"/>
+                    <div class="col-sm-12 form-group">
+                      <label>Select Category</label>
+                      <select name="category" class="form-control" id="category">
+                        <option>Select category</option>
+                        <?php foreach($categories as $key => $category) { ?>
+                          <option <?php echo ($participantData['category'] == $category['name']) ? 'selected' : ''; ?> value="<?php echo ($category['name']); ?>"><?php echo ucfirst($category['name']) ?></option>
+                        <?php } ?>
+                      </select>
+                    </div>
+
+
+                    <div id="adult" class="forms">
+                      <?php include __DIR__.'/../includes/forms/adult.php'; ?>
+                    </div>
+
+                    <div class="col-md-12">
+                      <button class="btn btn-primary btn-lg" id="submitBtn">Update Participants</button>
+                    </div>
+                  </form>
+                </div>
+
+                <div class="tab-pane fade  <?php echo ($participantData['category'] == 'undergraduate') ? 'active show' : ''; ?>" id="ud" role="tabpanel" aria-labelledby="ud-tab">
+                  <form msg="Updating <?php echo $participantData['first_name'] ?> Data" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
+                    <input name="update_user" value="1" type="hidden"/>
+                    <input name="id" value="1" type="hidden" value="<?php $participantData['id'] ?>"/>
+                    <div class="col-sm-12 form-group">
+                      <label>Select Category</label>
+                      <select name="category" class="form-control" id="category">
+                        <option>Select category</option>
+                        <?php foreach($categories as $key => $category) { ?>
+                          <option <?php echo ($participantData['category'] == $category['name']) ? 'selected' : ''; ?> value="<?php echo strtolower($category['name']); ?>"><?php echo ucfirst($category['name']) ?></option>
+                        <?php } ?>
+                      </select>
+                    </div>
+
+
+                    <div id="adult" class="forms">
+                      <?php include __DIR__.'/../includes/forms/ud.php'; ?>
+                    </div>
+
+                    <div class="col-md-12">
+                      <button class="btn btn-primary btn-lg" id="submitBtn">Update Participants</button>
+                    </div>
+
+                  </form>
+                </div>
+
+              </div>
             </div>
           </div>
 
@@ -159,6 +299,17 @@
   <script src="<?php echo site_url('/vendor/datatables/jquery.dataTables.min.js') ?>"></script>
   <script src="<?php echo site_url('/vendor/datatables/dataTables.bootstrap4.min.js') ?>"></script>
   <script src="<?php echo site_url('/js/demo/datatables-demo.js') ?>"></script>
+  <script src="<?php echo site_url('/js/forms.js') ?>"></script>
+  <script>
+    $(document).ready(function() {
+      const category = $("#category");
+      category.change(function () {
+        let cat = $(this).val();
+        $('#reg_form').show();
+        $(`#${cat}`).show();
+      });
+    });
+  </script>
 
 </body>
 

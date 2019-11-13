@@ -46,4 +46,9 @@
     e.preventDefault();
   });
 
+
+  $('.back-btn').click(function () {
+    window.history.back();
+  });
+
 })(jQuery); // End of use strict
