@@ -1,13 +1,6 @@
 <?php
     $conn = new mysqli("localhost", "root", "", "mydc");
 
-    // // require __DIR__.'/db.php';
-    // function getProgramsBy($data = null) {
-    //     //global $db;
-    //     return select('programs', '*', $data);
-    // }
-    // $programs = getProgramsBy(); 
-    // $activatedMenu = 'programs';
     $sql = "SELECT * FROM programs;";
     $result = mysqli_query($conn, $sql);
     $resultCheck = mysqli_num_rows($result);
@@ -67,6 +60,7 @@
                   <thead>
                     <tr>
                       <th>Topic</th>
+                      <th>Venue</th>
                       <th>Time Start</th>
                       <th>Time End</th>
                       <th>Day</th>
@@ -76,6 +70,7 @@
                   <tfoot>
                     <tr>
                       <th>Topic</th>
+                      <th>Venue</th>
                       <th>Time Start</th>
                       <th>Time End</th>
                       <th>Day</th>
@@ -88,11 +83,12 @@
                 ?>
                 <tr>
                   <td><?php echo $row['topic']; ?></td>
+                  <td><?php echo $row['venue']; ?></td>
                   <td><?php echo $row['time_start']; ?></td>
                   <td><?php echo $row['time_end']; ?></td>
                   <td><?php echo $row['day']; ?></td>
                   <td>
-                    <a href="manager.php?delete=<?php echo $id;?>" class='btn btn-danger'>DELETE</a>
+                    <a href="manager.php?del=<?php echo $row['id'];?>" class='btn btn-danger'>DELETE</a>
                   </td>
                 </tr>
                     <?php }} ?>

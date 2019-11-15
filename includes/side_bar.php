@@ -91,6 +91,7 @@
             <a class="collapse-item" href="<?php echo site_url('/programs/facilitators.php'); ?>">Facilitators</a>
             <a class="collapse-item" href="<?php echo site_url('/programs/add_facilitator.php'); ?>">Add new facilitator</a>
             <a class="collapse-item" href="<?php echo site_url('/programs/programs.php'); ?>">Programs</a>
+            <a class="collapse-item" href="<?php echo site_url('/programs/add_programs.php'); ?>">Add Programs</a>
           </div>
         </div>
       </li>

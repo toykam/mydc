@@ -1,8 +1,23 @@
 <?php
     $conn = new mysqli("localhost", "root", "", "mydc");
 
-    $query_kitchen = "SELECT participants.first_name, participants.last_name, participants.gender, participants.category, participants.email, participants.class, facilitators.id FROM facilitators JOIN participants ON facilitators.pid=participants.id ";
+    $query_kitchen = "SELECT participants.first_name, participants.last_name, participants.gender, participants.category,participants.phone_number, participants.email, participants.class, facilitators.* FROM facilitators JOIN participants ON facilitators.pid=participants.id ";
     $sql_kit = $conn->query($query_kitchen);
+
+    function getPrograms() {
+      global $conn;
+      $sql = "SELECT * FROM programs;";
+      $programs = $conn->query($sql);
+      return $programs;
+    }
+
+    function getProgram($pid) {
+      global $conn;
+      $sql = "SELECT * FROM programs WHERE id = ".$pid;
+      $program = $conn->query($sql);
+      return ($program) ? $program->fetch_assoc() : false;;
+    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -57,24 +72,26 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>First Name</th>
-                      <th>Last Name</th>
+                      <th>Full Name</th>
+                      <th>Number</th>
                       <th>Gender</th>
                       <th>E-mail</th>
                       <th>Category</th>
-                      <th>Class</th>
-                      <th>Action</th>
+                      <th>P Assigned</th>
+                      <th>All Programs</th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>First Name</th>
-                      <th>Last Name</th>
+                      <th>Full Name</th>
+                      <th>Number</th>
                       <th>Gender</th>
                       <th>E-mail</th>
                       <th>Category</th>
-                      <th>Class</th>
-                      <th>Action</th>
+                      <th>P Assigned</th>
+                      <th>All Programs</th>
+                      <th>Actions</th>
                     </tr>
                   </tfoot>
 
@@ -82,17 +99,31 @@
                 if ($sql_kit) {
                     while ($path = $sql_kit->fetch_assoc()) {
                         $id = $path['id'];
+                        $programs = getPrograms();
                 ?>
                 <tr>
-                  <td><?php echo $path['first_name']; ?></td>
-                  <td><?php echo $path['last_name']; ?></td>
-                  <td><?php echo $path['gender']; ?></td>
-                  <td><?php echo $path['email']; ?></td>
-                  <td><?php echo $path['category']; ?></td>
-                  <td><?php echo $path['class']; ?></td>
-                  <td>
-                    <a href="manager.php?delete=<?php echo $id;?>" class='btn btn-danger'>DELETE</a>
-                  </td>
+                  <form action="manager.php" method="POST">
+                    <input type="hidden" name="id" value="<?php echo $path['id']?>">
+                    <input type="hidden" name="action" value="p_assign">
+                    <td><?php echo $path['first_name'].' '.$path['last_name']; ?></td>
+                    <td><?php echo $path['phone_number']; ?></td>
+                    <td><?php echo $path['gender']; ?></td>
+                    <td><?php echo $path['email']; ?></td>
+                    <td><?php echo $path['category']; ?></td>
+                    <td><?php echo getProgram($path['p_assign'])['topic']; ?></td>
+                    <td>
+                      <select class="custom-select" name="p_assign">
+                        <option selected>Programs</option>
+                        <?php while ($program = $programs->fetch_assoc()) { ?>
+                          <option <?php echo ($path['p_assign'] == $program['id']) ? 'selected' : ''; ?> value="<?php echo $program['id']; ?>"><?php echo $program['topic'] ?></option>
+                        <?php } ?>
+                      </select>
+                    </td>
+                    <td>
+                      <a href="manager.php?delete=<?php echo $id;?>" class='btn btn-sm btn-danger'>DELETE</a>
+                      <button class='btn btn-sm btn-primary'>ASSIGN</button>
+                    </td>
+                  </form>
                 </tr>
 
             <?php }} ?>
