@@ -1,3 +1,13 @@
+<?php
+    $conn = new mysqli("localhost", "root", "", "mydc");
+
+    $query_reports = "SELECT participants.first_name, participants.last_name, participants.phone_number, facilitators.* FROM facilitators JOIN facilitators ON facilitators.pid=participants.id";
+    $sql_reports = $conn->query($query_reports);
+
+    // $sql = "SELECT * FROM facilitators;";
+    // $result = mysqli_query($conn, $sql);
+    // $resultCheck = mysqli_num_rows($result);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,54 +54,41 @@
               <a class="btn btn-primary float-right btn-sm" href="<?php echo site_url('/kitchen/create_report.php'); ?>"><i class="fas fa-edit"></i></a>
             </div>
             <div class="card-body">
+              <?php include __DIR__.'/../includes/msg.php'; ?>
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
+                      <th>Full Name</th>
+                      <th>Number</th>
+                      <th>Report</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
+                      <th>Full Name</th>
+                      <th>Number</th>
+                      <th>Report</th>
                     </tr>
                   </tfoot>
-                  <tbody>
-                    <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td>$320,800</td>
-                    </tr>
-                    <tr>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011/07/25</td>
-                      <td>$170,750</td>
-                    </tr>
-                    <tr>
-                      <td>Ashton Cox</td>
-                      <td>Junior Technical Author</td>
-                      <td>San Francisco</td>
-                      <td>66</td>
-                      <td>2009/01/12</td>
-                      <td>$86,000</td>
-                    </tr>
-                  </tbody>
+
+                    <?php 
+                    // if ($sql_reports) {
+                    //   while ($path = $sql_kit->fetch_assoc()) {
+                    //       $id = $path['id'];
+                    //       $programs = getPrograms();
+                    if ($sql_reports > 0) {
+                      while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+
+                  <tr>
+                    <form action="" method="POST">
+                    <td><?php echo $row['first_name'].' '.$row['last_name']; ?></td>
+                    <td><?php echo $row['phone_number']; ?></td>
+                    <td><?php echo $row['Program Report']; ?></td>
+                    </form>
+                  </tr>
+                    <?php }} ?>
                 </table>
               </div>
             </div>

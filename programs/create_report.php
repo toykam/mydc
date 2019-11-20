@@ -1,3 +1,11 @@
+<?php
+    $conn = new mysqli("localhost", "root", "", "mydc");
+
+    $query_reports = "SELECT * FROM participants WHERE category='undergraduate' OR category='adult'";
+    $sql_kit = $conn->query($query_reports);
+    // $result = mysqli_result()
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

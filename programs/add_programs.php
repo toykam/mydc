@@ -53,7 +53,8 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Add New Program</h6>
+            <a href="programs.php" class="float-left btn btn-primary btn-sm back-btn">Back</a>
+              <!-- <h6 class="m-0 font-weight-bold text-primary"> Add New Program</h6> -->
             </div>
             <div class="card-body">
               <?php include __DIR__.'/../includes/msg.php'; ?>

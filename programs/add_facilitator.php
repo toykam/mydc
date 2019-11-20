@@ -50,7 +50,7 @@
           <div class="card shadow mb-4">
             <div class="card-header py-3">
             <a href="facilitators.php" class="float-left btn btn-primary btn-sm back-btn">Back</a>
-              <h6 class="m-0 font-weight-bold text-primary">Add New Facilitator</h6>
+              <!-- <h6 class="m-0 font-weight-bold text-primary">Add New Facilitator</h6> -->
             </div>
             <div class="card-body">
               <?php include __DIR__.'/../includes/msg.php'; ?>
