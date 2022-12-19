@@ -26,6 +26,24 @@
         Menu
       </div>
 
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item <?php echo ($activatedMenu == 'admin') ? 'active' : ''; ?>">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#users" aria-expanded="true" aria-controls="users">
+          <i class="fas fa-fw fa-users"></i>
+          <span>Admins</span>
+        </a>
+        <div id="users" class="collapse <?php echo ($activatedMenu == 'admin') ? 'show' : ''; ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Admin Management:</h6>
+            <!-- <a class="collapse-item" href="<?php //echo site_url('/participants') ?>">Dashboard</a> -->
+            <a class="collapse-item" href="<?php echo site_url('/admin/index.php'); ?>">All Admin</a>
+            <a class="collapse-item" href="<?php echo site_url('/admin/add_admin.php'); ?>">Add new Admin</a>
+          </div>
+        </div>
+      </li>
+
+
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item <?php echo ($activatedMenu == 'participants') ? 'active' : ''; ?>">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#users" aria-expanded="true" aria-controls="users">

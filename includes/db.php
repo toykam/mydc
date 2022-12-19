@@ -1,8 +1,8 @@
 <?php
 
-use Medoo\Medoo;
+require(__DIR__ . "/../vendor/autoload.php");
 
-require __DIR__.'/medoo/src/Medoo.php';
+use Medoo\Medoo;
 
 $db = new Medoo([
     'database_type' => 'mysql',

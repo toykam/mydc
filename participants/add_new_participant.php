@@ -53,19 +53,23 @@
               <?php require __DIR__.'/../includes/msg.php'; ?>
 
               <ul class="nav nav-tabs" id="myTab" role="tablist">
+
                 <li class="nav-item">
                   <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Kiddies</a>
                 </li>
+
                 <li class="nav-item">
                   <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Teenagers</a>
                 </li>
+
                 <li class="nav-item">
                   <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Adults</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" id="ud-tab" data-toggle="tab" href="#ud" role="tab" aria-controls="ud" aria-selected="false">Undergraduates</a>
+                  <a class="nav-link" id="undergraduate-tab" data-toggle="tab" href="#undergraduate" role="tab" aria-controls="undergraduate" aria-selected="false">Undergraduates</a>
                 </li>
+
               </ul>
               <div class="tab-content" id="myTabContent">
 
@@ -76,7 +80,7 @@
                       <label>Select Category</label>
                       <select name="category" class="form-control" id="category">
                         <option>Select category</option>
-                        <?php foreach($categories as $key => $category) { ?>
+                        <?php foreach($categories as $key => $category)   { ?>
                           <option value="<?php echo strtolower($category['name']); ?>"><?php echo $category['name'] ?></option>
                         <?php } ?>
                       </select>
@@ -139,7 +143,7 @@
                   </form>
                 </div>
 
-                <div class="tab-pane fade" id="ud" role="tabpanel" aria-labelledby="ud-tab">
+                <div class="tab-pane fade" id="undergraduate" role="tabpanel" aria-labelledby="undergraduate-tab">
                   <form msg="Registering new user" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
                     <input name="reg_user" value="1" type="hidden"/>
                     <div class="col-sm-12 form-group">
@@ -153,7 +157,7 @@
                     </div>
 
 
-                    <div id="adult" class="forms">
+                    <div id="undergrad" class="forms">
                       <?php include __DIR__.'/../includes/forms/ud.php'; ?>
                     </div>
 

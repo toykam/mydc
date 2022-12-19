@@ -1,0 +1,8 @@
+{
+    "require": {
+        "rakit/session": "^1.0",
+        "catfan/medoo": "^2.1",
+        "aura/session": "^2.1",
+        "miladrahimi/php-jwt": "2.*"
+    }
+}

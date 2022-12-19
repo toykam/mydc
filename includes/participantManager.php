@@ -1,5 +1,5 @@
 <?php
-require __DIR__.'/db.php';
+
 function getParticipantsBy($data = null) {
     global $db;
     return $db->select('participants', '*', $data);
@@ -22,10 +22,7 @@ function deleteParticipant($where) {
 
 function updateParticipant($data, $where) {
     global $db;
-<<<<<<< HEAD
-=======
 
->>>>>>> 276bf34385865e3cd609e52740cd01cb097b1c30
     unset($data['update_user']);
     unset($data['id']);
     if ($db->update('participants', $data, $where)) {

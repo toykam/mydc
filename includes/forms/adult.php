@@ -95,10 +95,10 @@
             <input name="balance" placeholder="Payment Balance" class="form-control" value="<?php echo ($participantData) ? $participantData['balance'] : ''; ?>"/>
         </div>
 
-            <div class="form-group">
-                <textarea name="payment_details" placeholder="Payment Details" class="form-control" rows="5"><?php echo ($participantData) ? $participantData['payment_details'] : ''; ?></textarea>
-            </div>
-
+        <div class="form-group">
+            <textarea name="payment_details" placeholder="Payment Details" class="form-control" rows="5"><?php echo ($participantData) ? $participantData['payment_details'] : ''; ?></textarea>
         </div>
+
+        <!-- </div> -->
     </div>
 </div>

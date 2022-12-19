@@ -1,13 +1,16 @@
 <?php 
-  session_start();
+  require __DIR__.'/error_display.php';
 
-  // require __DIR__.'/db.php'; 
+  require(__DIR__."/../vendor/autoload.php");
 
-  // require __DIR__.'/db.php';
-
+  require __DIR__.'/db.php';
   require __DIR__.'/functions.php';
+  require __DIR__.'/sessionManager.php';
   require __DIR__.'/participantManager.php';
+  require __DIR__.'/adminManager.php';
   require __DIR__.'/categoriesManager.php';
+
+  isLoggedIn();
 ?>
 <head>
 
