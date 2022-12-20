@@ -1,10 +1,10 @@
 <?php 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 
 require __DIR__.'/../includes/all.php';
+require __DIR__.'/../includes/jwt_manager.php';
+
+header("Content-Type: application/json");
+
 
 if (!isset($_POST)) {
     die("not supported");
@@ -17,8 +17,7 @@ $user = getAdminBy(['aemail' => $email]);
 
 if ($user != null) {
     if (password_verify($password, $user['apassword'])) {
-        // echo "Password correct";
-
+        
         $response = [
             'status' => true,
             'message' => 'Login successful',

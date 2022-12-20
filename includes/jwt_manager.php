@@ -12,7 +12,7 @@ function generateToken($data) {
     $signer = new HS256('12345678901234567890123456789012');
     // Generate a token
     $generator = new Generator($signer);
-    $jwt = $generator->generate(['id' => 666, 'is-admin' => true]);
+    $jwt = $generator->generate($data);
 
     return $jwt;
 }
