@@ -47,35 +47,32 @@
                   <?php //echo $participantData['first_name']; ?>
                   <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
-                      <a class="nav-link <?php echo ($participantData['category'] == 'kiddies') ? 'active' : 'disabled'; ?>" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Kiddies</a>
+                      <a class="nav-link <?php echo (strtolower($participantData['category']) == 'kiddies') ? 'active' : 'disabled'; ?>" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Kiddies</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link  <?php echo ($participantData['category'] == 'teenager') ? 'active' : 'disabled'; ?>" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Teenagers</a>
+                      <a class="nav-link  <?php echo (strtolower($participantData['category']) == 'teenager') ? 'active' : 'disabled'; ?>" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Teenagers</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link  <?php echo ($participantData['category'] == 'adult') ? 'active' : 'disabled'; ?>" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Adults</a>
+                      <a class="nav-link  <?php echo (strtolower($participantData['category']) == 'adult') ? 'active' : 'disabled'; ?>" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Adults</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link  <?php echo ($participantData['category'] == 'undergraduate') ? 'active' : 'disabled'; ?>" id="ud-tab" data-toggle="tab" href="#ud" role="tab" aria-controls="ud" aria-selected="false">Undergraduates</a>
+                      <a class="nav-link  <?php echo (strtolower($participantData['category']) == 'undergraduate') ? 'active' : 'disabled'; ?>" id="ud-tab" data-toggle="tab" href="#ud" role="tab" aria-controls="ud" aria-selected="false">Undergraduates</a>
                     </li>
                   </ul>
 
                   <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade  <?php echo ($participantData['category'] == 'kiddies') ? 'active show' : ''; ?>" id="home" role="tabpanel" aria-labelledby="home-tab">
-
-                      <form msg="Registering new user" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
-                        <input name="reg_user" value="1" type="hidden"/>
+                    <div class="tab-pane fade  <?php echo (strtolower($participantData['category']) == 'kiddies') ? 'active show' : ''; ?>" id="home" role="tabpanel" aria-labelledby="home-tab">
 
                       <form msg="Updating <?php echo $participantData['first_name'] ?> Data" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
                         <input name="update_user" value="1" type="hidden"/>
-                        <input name="id" value="1" type="hidden" value="<?php $participantData['id'] ?>"/>
+                        <input name="id" type="hidden" value="<?php echo $participantData['id'] ?>"/>
 
                         <div class="col-sm-12 form-group">
                           <label>Select Category</label>
                           <select name="category" class="form-control" id="category">
                             <option disabled selected>Select category</option>
                             <?php foreach($categories as $key => $category) { ?>
-                              <option <?php echo ($participantData['category'] == $category['name']) ? 'selected' : ''; ?> value="<?php echo ($category['name']); ?>"><?php echo ucfirst($category['name']) ?></option>
+                              <option <?php echo (strtolower($participantData['category']) == strtolower($category['name'])) ? 'selected' : ''; ?> value="<?php echo ($category['name']); ?>"><?php echo ucfirst($category['name']) ?></option>
                             <?php } ?>
                           </select>
                         </div>
@@ -90,15 +87,16 @@
                       </form>
                     </div>
 
-                    <div class="tab-pane fade  <?php echo ($participantData['category'] == 'teenager') ? 'active show' : ''; ?>" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                      <form msg="Registering new user" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
-                        <input name="reg_user" value="1" type="hidden"/>
+                    <div class="tab-pane fade  <?php echo (strtolower($participantData['category']) == 'teenager') ? 'active show' : ''; ?>" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                      <form  msg="Updating <?php echo $participantData['first_name'] ?> Data" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
+                        <input name="update_user" value="1" type="hidden"/>
+                        <input name="id" type="hidden" value="<?php echo $participantData['id'] ?>"/>
                         <div class="col-sm-12 form-group">
                           <label>Select Category</label>
                           <select name="category" class="form-control" id="category">
                             <option>Select category</option>
                             <?php foreach($categories as $key => $category) { ?>
-                              <option <?php echo ($participantData['category'] == $category['name']) ? 'selected' : ''; ?> value="<?php echo ($category['name']); ?>"><?php echo ucfirst($category['name']) ?></option>
+                              <option <?php echo (strtolower($participantData['category']) == strtolower($category['name'])) ? 'selected' : ''; ?> value="<?php echo ($category['name']); ?>"><?php echo ucfirst($category['name']) ?></option>
                             <?php } ?>
                           </select>
                         </div>
@@ -113,15 +111,16 @@
                       </form>
                     </div>
                     
-                    <div class="tab-pane fade  <?php echo ($participantData['category'] == 'adult') ? 'active show' : ''; ?>" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                      <form msg="Registering new user" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
-                        <input name="reg_user" value="1" type="hidden"/>
+                    <div class="tab-pane fade  <?php echo (strtolower($participantData['category']) == 'adult') ? 'active show' : ''; ?>" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                      <form  msg="Updating <?php echo $participantData['first_name'] ?> Data" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
+                        <input name="update_user" value="1" type="hidden"/>
+                        <input name="id" type="hidden" value="<?php echo $participantData['id'] ?>"/>
                         <div class="col-sm-12 form-group">
                           <label>Select Category</label>
                           <select name="category" class="form-control" id="category">
                             <option>Select category</option>
                             <?php foreach($categories as $key => $category) { ?>
-                              <option <?php echo ($participantData['category'] == $category['name']) ? 'selected' : ''; ?> value="<?php echo ($category['name']); ?>"><?php echo ucfirst($category['name']) ?></option>
+                              <option <?php echo (strtolower($participantData['category']) == strtolower($category['name'])) ? 'selected' : ''; ?> value="<?php echo ($category['name']); ?>"><?php echo ucfirst($category['name']) ?></option>
                             <?php } ?>
                           </select>
                         </div>
@@ -137,15 +136,16 @@
                       </form>
                     </div>
 
-                    <div class="tab-pane fade  <?php echo ($participantData['category'] == 'undergraduate') ? 'active show' : ''; ?>" id="ud" role="tabpanel" aria-labelledby="ud-tab">
-                      <form msg="Registering new user" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
-                        <input name="reg_user" value="1" type="hidden"/>
+                    <div class="tab-pane fade  <?php echo (strtolower($participantData['category']) == 'undergraduate') ? 'active show' : ''; ?>" id="ud" role="tabpanel" aria-labelledby="ud-tab">
+                      <form  msg="Updating <?php echo $participantData['first_name'] ?> Data" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
+                        <input name="update_user" value="1" type="hidden"/>
+                        <input name="id" type="hidden" value="<?php echo $participantData['id'] ?>"/>
                         <div class="col-sm-12 form-group">
                           <label>Select Category</label>
                           <select name="category" class="form-control" id="category">
                             <option>Select category</option>
                             <?php foreach($categories as $key => $category) { ?>
-                              <option <?php echo ($participantData['category'] == $category['name']) ? 'selected' : ''; ?> value="<?php echo strtolower($category['name']); ?>"><?php echo ucfirst($category['name']) ?></option>
+                              <option <?php echo (strtolower($participantData['category']) == strtolower($category['name'])) ? 'selected' : ''; ?> value="<?php echo strtolower($category['name']); ?>"><?php echo ucfirst($category['name']) ?></option>
                             <?php } ?>
                           </select>
                         </div>

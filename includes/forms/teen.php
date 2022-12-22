@@ -1,54 +1,55 @@
 <div class="col-md-12 row">
-    <div class="col-md-4">
+<div class="col-md-4">
         <h4>Personal Information</h4>
         <div class="form-group">
-
             <input class="form-control general" name="first_name" placeholder="Participants First Name" value="<?php echo ($participantData) ? $participantData['first_name'] : ''; ?>"/>
-
         </div>
         <div class="form-group">
-            <input class="form-control general" name="last_name" placeholder="Participants Last Name" />
+            <input value="<?php echo ($participantData) ? $participantData['last_name'] : ''; ?>" class="form-control general" name="last_name" placeholder="Participants Last Name" />
         </div>
         <div class="form-group">
             <!-- <label>Select Gender</label> -->
+            <?php $gender = ($participantData) ? $participantData['gender'] : ''; ?>
             <select name="gender" class="form-control general">
-            <option selected disabled>Select Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
+                <option selected disabled>Select Gender</option>
+                <option <?php echo ($gender == 'male') ? 'selected' : 'disabled'; ?> value="male">Male</option>
+                <option <?php echo ($gender == 'female') ? 'selected' : 'disabled'; ?> value="female">Female</option>
             </select>
         </div>
         <div class="form-group">
-            <textarea class="form-control general" name="address" placeholder="Participants Address" rows="5"></textarea>
+            <textarea class="form-control general" name="address" placeholder="Participants Address" rows="5"><?php echo ($participantData) ? $participantData['address'] : ''; ?></textarea>
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label>Select Marital Status</label>
+            <?php // $maritalStatus = ($participantData) ? $participantData['marital_status'] : ''; ?>
             <select name="marital_status" class="form-control general">
-            <option selected disabled>Select Marital Status</option>
-            <option value="single">Single</option>
-            <option value="married">Married</option>
+                <option selected disabled>Select Marital Status</option>
+                <option <?php // echo (strtolower($maritalStatus) == 'single') ? 'selected' : ''; ?> value="single">Single</option>
+                <option <?php // echo (strtolower($maritalStatus) == 'married') ? 'selected' : ''; ?> value="married">Married</option>
+
             </select>
-        </div>
+        </div> -->
     
     </div>
 
     <div class="col-md-4">
         <h4>Contact Information</h4>
         <div class="form-group">
-            <input type="email" class="form-control general" name="email" placeholder="Participants Email" />
+            <input value="<?php echo ($participantData) ? $participantData['email'] : ''; ?>" type="email" class="form-control general" name="email" placeholder="Participants Email" />
         </div>
         <div class="form-group">
-            <input type="text" class="form-control general" name="phone_number" placeholder="Participants Phone Number" />
+            <input value="<?php echo ($participantData) ? $participantData['phone_number'] : ''; ?>" type="text" class="form-control general" name="phone_number" placeholder="Participants Phone Number" />
         </div>
         <div class="form-group">
-            <input class="form-control general" name="whatsapp_no" placeholder="Participants Whatsapp Number" />
+            <input class="form-control general" value="<?php echo ($participantData) ? $participantData['whatsapp_no'] : ''; ?>" name="whatsapp_no" placeholder="Participants Whatsapp Number" />
         </div>
 
         <div class="form-group">
-            <input class="form-control general" name="branch" placeholder="Participants Branch" />
+            <input class="form-control general" name="branch" placeholder="Participants Branch" value="<?php echo ($participantData) ? $participantData['branch'] : ''; ?>"/>
         </div>
 
-        <div class="form-group class teenagers">
-            <input class="form-control teenagers" name="platoon" placeholder="Participants Platoon" />
+        <div class="form-group class adult">
+            <input class="form-control adult" name="platoon" placeholder="Participants Platoon" value="<?php echo ($participantData) ? $participantData['platoon'] : ''; ?>"/>
         </div>
     </div>
 
@@ -61,13 +62,13 @@
 
         <div class="form-group class teenagers">
             <select name="class" class="form-control teenagers">
-            <option>Select Participant's Class</option>
-            <option value="jss 1">JSS 1</option>
-            <option value="jss 2">JSS 2</option>
-            <option value="jss 3">JSS 3</option>
-            <option value="sss 1">SSS 1</option>
-            <option value="sss 2">SSS 2</option>
-            <option value="sss 3">SSS 3</option>
+                <option>Select Participant's Class</option>
+                <option value="jss 1">JSS 1</option>
+                <option value="jss 2">JSS 2</option>
+                <option value="jss 3">JSS 3</option>
+                <option value="sss 1">SSS 1</option>
+                <option value="sss 2">SSS 2</option>
+                <option value="sss 3">SSS 3</option>
             </select>
         </div>
 
@@ -79,19 +80,31 @@
     <div class="col-md-4">
         <h4>Payment Information</h4>
         <div class="form-group">
-            <input name="amount_paid" placeholder="Amount Paid" class="form-control" />
+            <input name="amount_paid" placeholder="Amount Paid" class="form-control"value="<?php echo ($participantData) ? $participantData['amount_paid'] : ''; ?>" />
         </div>
 
         <div class="form-group">
-            <input name="payment_method" placeholder="Payment Method" class="form-control" />
+            <input name="payment_method" placeholder="Payment Method" class="form-control" value="<?php echo ($participantData) ? $participantData['payment_method'] : ''; ?>" />
         </div>
 
         <div class="form-group">
-            <input name="balance" placeholder="Payment Balance" class="form-control" />
+            <input name="balance" placeholder="Payment Balance" class="form-control" value="<?php echo ($participantData) ? $participantData['balance'] : ''; ?>"/>
         </div>
 
         <div class="form-group">
-            <textarea name="payment_details" placeholder="Payment Details" class="form-control" rows="5"></textarea>
+            <textarea name="payment_details" placeholder="Payment Details" class="form-control" rows="5"><?php echo ($participantData) ? $participantData['payment_details'] : ''; ?></textarea>
         </div>
+
+        <!-- </div> -->
     </div>
+
+    <div class="col-md-4">
+        <h4>QRCode Number</h4>
+        <div class="form-group">
+            <input name="qrcode" placeholder="QRCode Number" class="form-control"value="<?php echo ($participantData) ? $participantData['qrcode'] : ''; ?>" />
+        </div>
+
+        <!-- </div> -->
+    </div>
+
 </div>

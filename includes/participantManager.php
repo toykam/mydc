@@ -26,10 +26,10 @@ function updateParticipant($data, $where) {
     unset($data['update_user']);
     unset($data['id']);
     if ($db->update('participants', $data, $where)) {
-        var_dump($db->log());
+        // var_dump($db->log());
         return ['status' => true];
     } else {
-        var_dump($db->log());
+        // var_dump($db->log());
         return ['status' => false, 'msg' => $db->error()];
     }
 }

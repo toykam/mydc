@@ -1,3 +1,7 @@
+<?php
+// var_dump($participantData);
+?>
+
 <div class="col-md-12 row">
     <div class="col-md-4">
         <h4>Personal Information</h4>
@@ -97,6 +101,15 @@
 
         <div class="form-group">
             <textarea name="payment_details" placeholder="Payment Details" class="form-control" rows="5"><?php echo ($participantData) ? $participantData['payment_details'] : ''; ?></textarea>
+        </div>
+
+        <!-- </div> -->
+    </div>
+
+    <div class="col-md-4">
+        <h4>QRCode Number</h4>
+        <div class="form-group">
+            <input name="qrcode" placeholder="QRCode Number" class="form-control"value="<?php echo ($participantData) ? $participantData['qrcode'] : ''; ?>" />
         </div>
 
         <!-- </div> -->

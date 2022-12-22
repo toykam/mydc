@@ -10,9 +10,9 @@ header("Content-Type: application/json");
 try {
     $headers = getallheaders();
     
-    if (isset($headers['token'])) {
+    if (isset($headers['Token']) || isset($headers['token'])) {
     
-        $tokenData = verifyToken($headers['token']);
+        $tokenData = verifyToken($headers['token'] ?? $headers['Token']);
     
         if (in_array($tokenData['department'], ['admin', 'security'])) {
     
@@ -25,43 +25,53 @@ try {
                 exit();
             }
     
-            $userTokenData = verifyToken($_POST['user_token']);
+            $qrData = hex2bin($_POST['user_token']);
+            
+            $userTokenData = explode('_',$qrData);
 
-            $participantId = $userTokenData['id'];
+            $participantData = getParticipantBy(['qrcode' => $userTokenData[0]]);
 
-            $notInLog = $db->get('in_out', "*", [
-                'pid' => $participantId, 
-                'in_date_time' => null
-            ]);
-
-            $now = date("Y-m-d H:i:s");
-
-            if ($notInLog) {
-                
-                $db->update('in_out', [
-                    'pid' => $participantId, 
-                    'in_scanner' => $tokenData['id'],
-                    'in_date_time' => $now
-                ], ['id' => $notInLog['id']]);
-
+            if (!$participantData) {
                 $response = [
-                    'status' => true,
-                    'message' => "Alaye lua welcome o",
-                    "data" => $notInLog
+                    'status' => false,
+                    'message' => "This QRCode have not been assigned to anyone, something fishy is going on!!!"
                 ];
             } else {
-
-                $db->insert('in_out', [
+                $participantId = $participantData["id"];
+    
+                $notInLog = $db->get('in_out', "*", [
                     'pid' => $participantId, 
-                    'out_scanner' => $tokenData['id'],
+                    'in_date_time' => null
                 ]);
     
-                $response = [
-                    'status' => true,
-                    'message' => "Alaye lua welcome o",
-                    "data" => $userTokenData
-                ];
+                $now = date("Y-m-d H:i:s");
+    
+                if ($notInLog) {
+                    
+                    $db->update('in_out', [
+                        'pid' => $participantId, 
+                        'in_scanner' => $tokenData['id'],
+                        'in_date_time' => $now
+                    ], ['id' => $notInLog['id']]);
+    
+                    $response = [
+                        'status' => true,
+                        'message' => "Scanned In successfully"
+                    ];
+                } else {
+    
+                    $db->insert('in_out', [
+                        'pid' => $participantId, 
+                        'out_scanner' => $tokenData['id'],
+                    ]);
+        
+                    $response = [
+                        'status' => true,
+                        'message' => "Scanned out successfully"
+                    ];
+                }
             }
+
 
         } else {
             $response = [
@@ -76,12 +86,11 @@ try {
             'message' => "Please provide your token to continue"
         ];
     }
+    echo json_encode($response);
 } catch (Exception $e) {
     $response = [
         'status' => false,
         'message' => $e->getMessage()
     ];
+    echo json_encode($response);
 }
-
-
-echo json_encode($response);
