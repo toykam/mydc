@@ -12,8 +12,8 @@
             <?php $gender = ($participantData) ? $participantData['gender'] : ''; ?>
             <select name="gender" class="form-control general">
                 <option selected disabled>Select Gender</option>
-                <option <?php echo ($gender == 'male') ? 'selected' : 'disabled'; ?> value="male">Male</option>
-                <option <?php echo ($gender == 'female') ? 'selected' : 'disabled'; ?> value="female">Female</option>
+                <option <?php echo ($gender == 'male') ? 'selected' : ''; ?> value="male">Male</option>
+                <option <?php echo ($gender == 'female') ? 'selected' : ''; ?> value="female">Female</option>
             </select>
         </div>
         <div class="form-group">
@@ -28,10 +28,10 @@
             <input value="<?php echo ($participantData) ? $participantData['email'] : ''; ?>" type="email" class="form-control general" name="email" placeholder="Parent/Guardian Email" />
         </div>
         <div class="form-group">
-            <input value="<?php echo ($participantData) ? $participantData['phone_number'] : ''; ?>" type="text" class="form-control general" name="phone_number" placeholder="Parent/Guardian Phone Number" />
+            <input value="<?php echo ($participantData) ? $participantData['phone_number'] : '0800000000'; ?>" type="text" class="form-control general" name="phone_number" placeholder="Parent/Guardian Phone Number" />
         </div>
         <div class="form-group">
-            <input class="form-control general" value="<?php echo ($participantData) ? $participantData['whatsapp_no'] : ''; ?>" name="whatsapp_no" placeholder="Parent/Guardian Whatsapp Number" />
+            <input class="form-control general" value="<?php echo ($participantData) ? $participantData['whatsapp_no'] : '0800000000'; ?>" name="whatsapp_no" placeholder="Parent/Guardian Whatsapp Number" />
         </div>
 
         <div class="form-group">
@@ -56,6 +56,9 @@
                 <option <?php echo (strtolower($class) == 'primary 4') ? 'selected' : ''; ?> value="primary 4">Primary 4</option>
                 <option <?php echo (strtolower($class) == 'primary 5') ? 'selected' : ''; ?> value="primary 5">Primary 5</option>
                 <option <?php echo (strtolower($class) == 'primary 6') ? 'selected' : ''; ?> value="primary 6">Primary 6</option>
+                <option <?php echo (strtolower($class) == 'jss1') ? 'selected' : ''; ?> value="jss1">JSS 1</option>
+                <option <?php echo (strtolower($class) == 'jss2') ? 'selected' : ''; ?> value="jss2">JSS 2</option>
+                <option <?php echo (strtolower($class) == 'jss3') ? 'selected' : ''; ?> value="jss3">JSS 3</option>
             </select>
         </div>
 
@@ -69,7 +72,7 @@
     <div class="col-md-4">
         <h4>Payment Information</h4>
         <div class="form-group">
-            <input name="amount_paid" placeholder="Amount Paid" class="form-control"value="<?php echo ($participantData) ? $participantData['amount_paid'] : ''; ?>" />
+            <input name="amount_paid" placeholder="Amount Paid" class="form-control"value="<?php echo ($participantData) ? $participantData['amount_paid'] : '3000'; ?>" />
         </div>
 
         <div class="form-group">
@@ -77,7 +80,7 @@
         </div>
 
         <div class="form-group">
-            <input name="balance" placeholder="Payment Balance" class="form-control" value="<?php echo ($participantData) ? $participantData['balance'] : ''; ?>"/>
+            <input name="balance" placeholder="Payment Balance" class="form-control" value="<?php echo ($participantData) ? $participantData['balance'] : '0'; ?>"/>
         </div>
         <div class="form-group">
             <textarea name="payment_details" placeholder="Payment Details" class="form-control" rows="5"><?php echo ($participantData) ? $participantData['payment_details'] : ''; ?></textarea>

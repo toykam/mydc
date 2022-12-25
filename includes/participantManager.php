@@ -2,7 +2,10 @@
 
 function getParticipantsBy($data = null) {
     global $db;
-    return $db->select('participants', '*', $data);
+    
+    $response = $db->select('participants', '*', $data);
+    // var_dump($db->log());
+    return $response;
 }
 
 function getParticipantBy($data) {
@@ -25,11 +28,12 @@ function updateParticipant($data, $where) {
 
     unset($data['update_user']);
     unset($data['id']);
+    $data['date'] = date("Y-m-d H:i");
     if ($db->update('participants', $data, $where)) {
         // var_dump($db->log());
         return ['status' => true];
     } else {
         // var_dump($db->log());
-        return ['status' => false, 'msg' => $db->error()];
+        return ['status' => false, 'msg' => "Something went wrong"];
     }
 }

@@ -1,0 +1,32 @@
+[23-Dec-2022 03:58:50 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/mydc/public_html/security/connection.php on line 2
+[23-Dec-2022 03:58:50 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/mydc/public_html/security/members.php on line 7
+[23-Dec-2022 03:58:50 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/mydc/public_html/vendor/aura/session/src/Phpfunc.php on line 33
+[23-Dec-2022 03:58:50 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/mydc/public_html/security/members.php:25) in /home/mydc/public_html/includes/functions.php on line 16
+[23-Dec-2022 03:58:50 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/mydc/public_html/security/members.php:94
+Stack trace:
+#0 {main}
+  thrown in /home/mydc/public_html/security/members.php on line 94
+[23-Dec-2022 03:59:11 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/mydc/public_html/security/connection.php on line 2
+[23-Dec-2022 03:59:11 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/mydc/public_html/security/members.php on line 7
+[23-Dec-2022 03:59:11 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/mydc/public_html/vendor/aura/session/src/Phpfunc.php on line 33
+[23-Dec-2022 03:59:11 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/mydc/public_html/security/members.php:25) in /home/mydc/public_html/includes/functions.php on line 16
+[23-Dec-2022 03:59:11 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/mydc/public_html/security/members.php:94
+Stack trace:
+#0 {main}
+  thrown in /home/mydc/public_html/security/members.php on line 94
+[23-Dec-2022 03:59:50 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/mydc/public_html/security/connection.php on line 2
+[23-Dec-2022 03:59:50 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/mydc/public_html/security/members.php on line 7
+[23-Dec-2022 03:59:50 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/mydc/public_html/vendor/aura/session/src/Phpfunc.php on line 33
+[23-Dec-2022 03:59:50 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/mydc/public_html/security/members.php:25) in /home/mydc/public_html/includes/functions.php on line 16
+[23-Dec-2022 03:59:50 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/mydc/public_html/security/members.php:94
+Stack trace:
+#0 {main}
+  thrown in /home/mydc/public_html/security/members.php on line 94
+[23-Dec-2022 04:00:08 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/mydc/public_html/vendor/aura/session/src/Phpfunc.php on line 33
+[23-Dec-2022 04:00:08 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/mydc/public_html/security/add_member.php:1) in /home/mydc/public_html/includes/functions.php on line 16
+[23-Dec-2022 04:00:08 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/mydc/public_html/security/connection.php on line 2
+[23-Dec-2022 04:00:08 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/mydc/public_html/security/add_member.php on line 8
+[23-Dec-2022 04:00:08 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/mydc/public_html/security/add_member.php:73
+Stack trace:
+#0 {main}
+  thrown in /home/mydc/public_html/security/add_member.php on line 73

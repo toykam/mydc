@@ -16,8 +16,8 @@
             <?php $gender = ($participantData) ? $participantData['gender'] : ''; ?>
             <select name="gender" class="form-control general">
                 <option selected disabled>Select Gender</option>
-                <option <?php echo ($gender == 'male') ? 'selected' : 'disabled'; ?> value="male">Male</option>
-                <option <?php echo ($gender == 'female') ? 'selected' : 'disabled'; ?> value="female">Female</option>
+                <option <?php echo ($gender == 'male') ? 'selected' : ''; ?> value="male">Male</option>
+                <option <?php echo ($gender == 'female') ? 'selected' : ''; ?> value="female">Female</option>
             </select>
         </div>
         <div class="form-group">
@@ -77,6 +77,7 @@
                 <option <?php echo (strtolower($class) == '400 level') ? 'selected' : ''; ?> class="400 level">400 Level</option>
                 <option <?php echo (strtolower($class) == '500 level') ? 'selected' : ''; ?> class="500 level">500 Level</option>
                 <option <?php echo (strtolower($class) == '600 level') ? 'selected' : ''; ?> class="600 level">600 Level</option>
+                <option <?php echo (strtolower($class) == 'graduate') ? 'selected' : ''; ?> class="graduate">Graduate</option>
             </select>
         </div>
 

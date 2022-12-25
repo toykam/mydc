@@ -1,16 +1,17 @@
 <?php 
-  require __DIR__.'/error_display.php';
-
-  require(__DIR__."/../vendor/autoload.php");
-
-  require __DIR__.'/db.php';
-  require __DIR__.'/functions.php';
-  require __DIR__.'/sessionManager.php';
-  require __DIR__.'/participantManager.php';
-  require __DIR__.'/adminManager.php';
-  require __DIR__.'/categoriesManager.php';
-
-  isLoggedIn();
+    require(__DIR__."/../vendor/autoload.php");
+    
+    require __DIR__.'/sessionManager.php';
+    
+    // require __DIR__.'/error_display.php';
+    
+    require __DIR__.'/db.php';
+    require __DIR__.'/functions.php';
+    require __DIR__.'/participantManager.php';
+    require __DIR__.'/adminManager.php';
+    require __DIR__.'/categoriesManager.php';
+    
+    isLoggedIn();
 ?>
 <head>
 
@@ -20,7 +21,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Dashboard</title>
+  <title>MYDC</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?php echo site_url('/vendor/fontawesome-free/css/all.min.css'); ?>" rel="stylesheet" type="text/css">

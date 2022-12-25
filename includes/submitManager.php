@@ -24,6 +24,19 @@ if ($_POST) {
                 exit();
             }
         }
+        
+        if (isset($_POST['qrcode']) && $_POST['qrcode'] != "0") {
+            $participant = getParticipantBy(['qrcode' => $_POST['qrcode']]);
+            if ($participant != null) {
+                $response = [
+                    "status" => 0,
+                    "msg" => "QRCode have been assigned to ".$participant['first_name']." ".$participant['last_name'],
+                    "flag" => "alert-danger"
+                ];
+                echo json_encode($response);
+                exit();
+            }
+        }
 
         if (createNewParticipant($_POST)) {
             $response = array();
@@ -54,6 +67,20 @@ if ($_POST) {
                 exit();
             }
         }
+        
+        if (isset($_POST['qrcode'])  && $_POST['qrcode'] != "0") {
+            $participant = getParticipantBy(['qrcode' => $_POST['qrcode'], "id[!]" => (int)$_POST['id']]);
+            if ($participant != null) {
+                $response = [
+                    "status" => 0,
+                    "msg" => "QRCode have been assigned to ".$participant['first_name']." ".$participant['last_name'],
+                    "flag" => "alert-danger"
+                ];
+                echo json_encode($response);
+                exit();
+            }
+        }
+        
         $data = $_POST;
         $where = ['id' => (int)$_POST['id']];
         $update = updateParticipant($data, $where);
@@ -120,7 +147,7 @@ if ($_POST) {
 
         $email = $data['aemail'];
 
-        $data['apassword'] = password_hash($data['password'], PASSWORD_BCRYPT);
+        $data['apassword'] = password_hash($_POST['password'], PASSWORD_BCRYPT);
         unset($data['add_admin']);
         $existingUser = getAdminBy(['aemail' => $email]);
         if ($existingUser == null) {
