@@ -1,4 +1,4 @@
 node_modules
-includes/db.php
+./includes/db.php
 .env
 uuuuu
