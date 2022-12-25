@@ -77,6 +77,9 @@
                 <option <?php echo (strtolower($class) == '400 level') ? 'selected' : ''; ?> class="400 level">400 Level</option>
                 <option <?php echo (strtolower($class) == '500 level') ? 'selected' : ''; ?> class="500 level">500 Level</option>
                 <option <?php echo (strtolower($class) == '600 level') ? 'selected' : ''; ?> class="600 level">600 Level</option>
+                <option <?php echo (strtolower($class) == 'nd') ? 'selected' : ''; ?> class="nd">ND</option>
+                <option <?php echo (strtolower($class) == 'hnd') ? 'selected' : ''; ?> class="hnd">HND</option>
+                <option <?php echo (strtolower($class) == 'nce') ? 'selected' : ''; ?> class="nce">NCE</option>
                 <option <?php echo (strtolower($class) == 'graduate') ? 'selected' : ''; ?> class="graduate">Graduate</option>
             </select>
         </div>

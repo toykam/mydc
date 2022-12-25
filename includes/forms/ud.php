@@ -66,14 +66,15 @@
                 <select name="class" class="form-control adult">
                     <option selected disabled>Select participant class</option>
                     <option <?php echo (strtolower($class) == 'bsc') ? 'selected' : ''; ?> value="BSc">BSc</option>
-                    <option <?php echo (strtolower($class) == 'msc') ? 'selected' : ''; ?> value="MSc">MSc</option>
-                    <option <?php echo (strtolower($class) == 'phd') ? 'selected' : ''; ?> value="Phd">Phd</option>
                     <option <?php echo (strtolower($class) == '100 level') ? 'selected' : ''; ?> class="100 level">100 Level</option>
                     <option <?php echo (strtolower($class) == '200 level') ? 'selected' : ''; ?> class="200 level">200 Level</option>
                     <option <?php echo (strtolower($class) == '300 level') ? 'selected' : ''; ?> class="300 level">300 Level</option>
                     <option <?php echo (strtolower($class) == '400 level') ? 'selected' : ''; ?> class="400 level">400 Level</option>
                     <option <?php echo (strtolower($class) == '500 level') ? 'selected' : ''; ?> class="500 level">500 Level</option>
                     <option <?php echo (strtolower($class) == '600 level') ? 'selected' : ''; ?> class="600 level">600 Level</option>
+                    <option <?php echo (strtolower($class) == 'nd') ? 'selected' : ''; ?> class="nd">ND</option>
+                    <option <?php echo (strtolower($class) == 'hnd') ? 'selected' : ''; ?> class="hnd">HND</option>
+                    <option <?php echo (strtolower($class) == 'nce') ? 'selected' : ''; ?> class="nce">NCE</option>
                 </select>
             </div>
 

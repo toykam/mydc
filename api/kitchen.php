@@ -7,6 +7,10 @@ header("Content-Type: application/json");
 
 // var_dump($_POST);
 
+// const BREAKFAST = 1001;
+// const LAUNCH = 1002;
+// const DINNER = 1003;
+
 $food = 1;
 $date = date('y-m-d h:s');
 
