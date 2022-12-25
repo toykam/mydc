@@ -34,13 +34,15 @@ try {
 
             $participantData = getParticipantBy(['qrcode' => $userTokenData[0]]);
 
+            // print_r($participantData);
+
             if (!$participantData) {
                 $response = [
                     'status' => false,
                     'message' => "This QRCode have not been assigned to anyone, something fishy is going on!!!"
                 ];
             } else {
-                $eaten = $db->get('kitchen', [
+                $eaten = $db->get('kitchen', "*", [
                     "date_time[<>]" => [date("Y-m-d 07:00"), date("Y-m-d 12:00")],
                     "food" => $food,
                     "participant_id" => $participantData['id']
