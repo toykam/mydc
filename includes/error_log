@@ -1,0 +1,18 @@
+[23-Dec-2022 05:44:48 UTC] PHP Notice:  Undefined index: password in /home/mydc/public_html/includes/submitManager.php on line 123
+[23-Dec-2022 05:44:48 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/mydc/public_html/vendor/aura/session/src/Phpfunc.php on line 33
+[23-Dec-2022 05:44:48 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/mydc/public_html/vendor/aura/session/src/Phpfunc.php on line 33
+[23-Dec-2022 05:44:48 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/mydc/public_html/includes/submitManager.php:123) in /home/mydc/public_html/includes/submitManager.php on line 136
+[23-Dec-2022 16:20:27 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Medoo\Medoo::error() in /home/mydc/public_html/includes/participantManager.php:37
+Stack trace:
+#0 /home/mydc/public_html/includes/submitManager.php(59): updateParticipant(Array, Array)
+#1 {main}
+  thrown in /home/mydc/public_html/includes/participantManager.php on line 37
+[23-Dec-2022 16:20:50 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Medoo\Medoo::error() in /home/mydc/public_html/includes/participantManager.php:37
+Stack trace:
+#0 /home/mydc/public_html/includes/submitManager.php(59): updateParticipant(Array, Array)
+#1 {main}
+  thrown in /home/mydc/public_html/includes/participantManager.php on line 37
+[23-Dec-2022 23:33:20 UTC] PHP Parse error:  syntax error, unexpected ':', expecting ']' in /home/mydc/public_html/includes/submitManager.php on line 32
+[23-Dec-2022 23:33:37 UTC] PHP Parse error:  syntax error, unexpected ':', expecting ']' in /home/mydc/public_html/includes/submitManager.php on line 32
+[23-Dec-2022 23:36:28 UTC] PHP Parse error:  syntax error, unexpected ':', expecting ']' in /home/mydc/public_html/includes/submitManager.php on line 32
+[23-Dec-2022 23:39:46 UTC] PHP Parse error:  syntax error, unexpected ':', expecting ']' in /home/mydc/public_html/includes/submitManager.php on line 75

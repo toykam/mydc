@@ -1,0 +1,4 @@
+[22-Dec-2022 20:35:32 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/mydc/public_html/vendor/aura/session/src/Phpfunc.php on line 33
+[22-Dec-2022 20:35:32 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/mydc/public_html/index.php:1) in /home/mydc/public_html/includes/functions.php on line 16
+[23-Dec-2022 03:58:16 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/mydc/public_html/vendor/aura/session/src/Phpfunc.php on line 33
+[23-Dec-2022 03:58:16 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/mydc/public_html/kitchen/add_member.php:1) in /home/mydc/public_html/includes/functions.php on line 16

@@ -7,7 +7,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Male Kiddies</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count(getParticipantsBy(['category'=>'kiddies', 'gender'=>'male'])) ?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count(getParticipantsBy(['category'=>'kiddies', "gender" => "male", "date[<>]" => [date("2022-12-22"), date("2023-01-01")]])) ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-male fa-2x text-gray-300"></i>
@@ -24,7 +24,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Male Teenagers</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count(getParticipantsBy(['category'=>'teenager', 'gender'=>'male'])) ?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count(getParticipantsBy(['category'=>'teenagers',  'gender'=>'male', "date[<>]" => [date("2022-12-22"), date("2023-01-01")]])) ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-male fa-2x text-gray-300"></i>
@@ -41,7 +41,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Male Undergraduates</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count(getParticipantsBy(['category'=>'undergraduate', 'gender'=>'male'])) ?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count(getParticipantsBy(['category'=>'undergraduate', 'gender'=>'male', "date[<>]" => [date("2022-12-22"), date("2023-01-01")]])) ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-male fa-2x text-gray-300"></i>
@@ -59,7 +59,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Male Adults</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count(getParticipantsBy(['category'=>'adult', 'gender'=>'male'])) ?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count(getParticipantsBy(['category'=>'adult', 'gender'=>'male', "date[<>]" => [date("2022-12-22"), date("2023-01-01")]])) ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-male fa-2x text-gray-300"></i>
@@ -76,7 +76,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Female Kiddies</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count(getParticipantsBy(['category'=>'kiddies', 'gender'=>'female'])) ?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count(getParticipantsBy(['category'=>'kiddies', 'gender'=>'female', "date[<>]" => [date("2022-12-22"), date("2023-01-01")]])) ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-female fa-2x text-gray-300"></i>
@@ -93,7 +93,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Female Teenagers</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count(getParticipantsBy(['category'=>'teenager', 'gender'=>'female'])) ?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count(getParticipantsBy(['category'=>'teenagers', 'gender'=>'female', "date[<>]" => [date("2022-12-22"), date("2023-01-01")]])) ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-female fa-2x text-gray-300"></i>
@@ -110,7 +110,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Female Undergraduates</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count(getParticipantsBy(['category'=>'undergraduate', 'gender'=>'female'])) ?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count(getParticipantsBy(['category'=>'undergraduate', 'gender'=>'female',  "date[<>]" => [date("2022-12-22"), date("2023-01-01")]])) ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-female fa-2x text-gray-300"></i>
@@ -127,7 +127,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Female Adults</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count(getParticipantsBy(['category'=>'adult', 'gender'=>'female'])) ?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count(getParticipantsBy(['category'=>'adult', 'gender'=>'female', "date[<>]" => [date("2022-12-22"), date("2023-01-01")]])) ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-female fa-2x text-gray-300"></i>
@@ -144,7 +144,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Kiddies Total</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count(getParticipantsBy(['category'=>'kiddies'])) ?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count(getParticipantsBy(['category'=>'kiddies', "date[<>]" => [date("2022-12-22"), date("2023-01-01")]])) ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-male fa-2x text-gray-300"></i>
@@ -161,7 +161,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Teenagers Total</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count(getParticipantsBy(['category'=>'teenager'])) ?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count(getParticipantsBy(['category'=>'teenagers', "date[<>]" => [date("2022-12-22"), date("2023-01-01")]])) ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-male fa-2x text-gray-300"></i>
@@ -178,7 +178,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Undergraduates Total</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count(getParticipantsBy(['category'=>'undergraduate'])) ?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count(getParticipantsBy(['category'=>'undergraduate', "date[<>]" => [date("2022-12-22"), date("2023-01-01")]])) ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-male fa-2x text-gray-300"></i>
@@ -196,7 +196,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Adults Total</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count(getParticipantsBy(['category'=>'adult'])) ?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count(getParticipantsBy(['category'=>'adult', "date[<>]" => [date("2022-12-22"), date("2023-01-01")]])) ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-male fa-2x text-gray-300"></i>

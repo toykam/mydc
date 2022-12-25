@@ -50,7 +50,7 @@
                       <a class="nav-link <?php echo (strtolower($participantData['category']) == 'kiddies') ? 'active' : 'disabled'; ?>" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Kiddies</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link  <?php echo (strtolower($participantData['category']) == 'teenager') ? 'active' : 'disabled'; ?>" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Teenagers</a>
+                      <a class="nav-link  <?php echo (strtolower($participantData['category']) == 'teenagers') ? 'active' : 'disabled'; ?>" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Teenagers</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link  <?php echo (strtolower($participantData['category']) == 'adult') ? 'active' : 'disabled'; ?>" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Adults</a>
@@ -72,7 +72,7 @@
                           <select name="category" class="form-control" id="category">
                             <option disabled selected>Select category</option>
                             <?php foreach($categories as $key => $category) { ?>
-                              <option <?php echo (strtolower($participantData['category']) == strtolower($category['name'])) ? 'selected' : ''; ?> value="<?php echo ($category['name']); ?>"><?php echo ucfirst($category['name']) ?></option>
+                              <option <?php echo (strtolower($participantData['category']) == strtolower($category['name'])) ? 'selected' : ''; ?> value="<?php echo strtolower($category['name']); ?>"><?php echo ucfirst($category['name']) ?></option>
                             <?php } ?>
                           </select>
                         </div>
@@ -87,7 +87,7 @@
                       </form>
                     </div>
 
-                    <div class="tab-pane fade  <?php echo (strtolower($participantData['category']) == 'teenager') ? 'active show' : ''; ?>" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="tab-pane fade  <?php echo (strtolower($participantData['category']) == 'teenagers') ? 'active show' : ''; ?>" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                       <form  msg="Updating <?php echo $participantData['first_name'] ?> Data" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
                         <input name="update_user" value="1" type="hidden"/>
                         <input name="id" type="hidden" value="<?php echo $participantData['id'] ?>"/>
@@ -96,7 +96,7 @@
                           <select name="category" class="form-control" id="category">
                             <option>Select category</option>
                             <?php foreach($categories as $key => $category) { ?>
-                              <option <?php echo (strtolower($participantData['category']) == strtolower($category['name'])) ? 'selected' : ''; ?> value="<?php echo ($category['name']); ?>"><?php echo ucfirst($category['name']) ?></option>
+                              <option <?php echo (strtolower($participantData['category']) == strtolower($category['name'])) ? 'selected' : ''; ?> value="<?php echo strtolower($category['name']); ?>"><?php echo ucfirst($category['name']) ?></option>
                             <?php } ?>
                           </select>
                         </div>
@@ -120,7 +120,7 @@
                           <select name="category" class="form-control" id="category">
                             <option>Select category</option>
                             <?php foreach($categories as $key => $category) { ?>
-                              <option <?php echo (strtolower($participantData['category']) == strtolower($category['name'])) ? 'selected' : ''; ?> value="<?php echo ($category['name']); ?>"><?php echo ucfirst($category['name']) ?></option>
+                              <option <?php echo (strtolower($participantData['category']) == strtolower($category['name'])) ? 'selected' : ''; ?> value="<?php echo (strtolower($category['name'])); ?>"><?php echo ucfirst($category['name']) ?></option>
                             <?php } ?>
                           </select>
                         </div>

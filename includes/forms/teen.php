@@ -12,8 +12,8 @@
             <?php $gender = ($participantData) ? $participantData['gender'] : ''; ?>
             <select name="gender" class="form-control general">
                 <option selected disabled>Select Gender</option>
-                <option <?php echo ($gender == 'male') ? 'selected' : 'disabled'; ?> value="male">Male</option>
-                <option <?php echo ($gender == 'female') ? 'selected' : 'disabled'; ?> value="female">Female</option>
+                <option <?php echo ($gender == 'male') ? 'selected' : ''; ?> value="male">Male</option>
+                <option <?php echo ($gender == 'female') ? 'selected' : ''; ?> value="female">Female</option>
             </select>
         </div>
         <div class="form-group">
@@ -38,10 +38,10 @@
             <input value="<?php echo ($participantData) ? $participantData['email'] : ''; ?>" type="email" class="form-control general" name="email" placeholder="Participants Email" />
         </div>
         <div class="form-group">
-            <input value="<?php echo ($participantData) ? $participantData['phone_number'] : ''; ?>" type="text" class="form-control general" name="phone_number" placeholder="Participants Phone Number" />
+            <input value="<?php echo ($participantData) ? $participantData['phone_number'] : '080000000'; ?>" type="text" class="form-control general" name="phone_number" placeholder="Participants Phone Number" />
         </div>
         <div class="form-group">
-            <input class="form-control general" value="<?php echo ($participantData) ? $participantData['whatsapp_no'] : ''; ?>" name="whatsapp_no" placeholder="Participants Whatsapp Number" />
+            <input class="form-control general" value="<?php echo ($participantData) ? $participantData['whatsapp_no'] : '08000000000'; ?>" name="whatsapp_no" placeholder="Participants Whatsapp Number" />
         </div>
 
         <div class="form-group">
@@ -80,7 +80,7 @@
     <div class="col-md-4">
         <h4>Payment Information</h4>
         <div class="form-group">
-            <input name="amount_paid" placeholder="Amount Paid" class="form-control"value="<?php echo ($participantData) ? $participantData['amount_paid'] : ''; ?>" />
+            <input name="amount_paid" placeholder="Amount Paid" class="form-control"value="<?php echo ($participantData) ? $participantData['amount_paid'] : '6000'; ?>" />
         </div>
 
         <div class="form-group">
@@ -88,7 +88,7 @@
         </div>
 
         <div class="form-group">
-            <input name="balance" placeholder="Payment Balance" class="form-control" value="<?php echo ($participantData) ? $participantData['balance'] : ''; ?>"/>
+            <input name="balance" placeholder="Payment Balance" class="form-control" value="<?php echo ($participantData) ? $participantData['balance'] : '0'; ?>"/>
         </div>
 
         <div class="form-group">
