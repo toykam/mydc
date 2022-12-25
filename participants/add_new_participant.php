@@ -77,7 +77,8 @@
                   <form msg="Registering new user" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
                     <input name="reg_user" value="1" type="hidden"/>
                     <input name="category" value="kiddies" type="hidden"/>
-                    <div class="col-sm-12 form-group">
+                    
+                    <!-- <div class="col-sm-12 form-group"> -->
                       <!-- <label>Select Category</label>
                       <select name="category" class="form-control" id="category">
                         <option>Select category</option>
@@ -85,9 +86,10 @@
                           <option value="<?php // echo strtolower($category['name']); ?>"><?php // echo $category['name'] ?></option>
                         <?php // } ?>
                       </select> -->
-                    </div>
+                    <!-- </div> -->
 
                     <div id="kiddies" class="forms">
+                      <div style="height: 20px;"></div>
                       <?php include __DIR__.'/../includes/forms/kid.php'; ?>
                     </div>
 
@@ -112,10 +114,12 @@
                     </div> -->
 
                     <div id="teenagers" class="forms">
+                      <div style="height: 20px;"></div>
                       <?php include __DIR__.'/../includes/forms/teen.php'; ?>
                     </div>
 
                     <div class="col-md-12">
+                      
                       <button class="btn btn-primary btn-lg" id="submitBtn">Add Participants</button>
                     </div>
                   </form>
@@ -137,10 +141,12 @@
 
 
                     <div id="adult" class="forms">
+                    <div style="height: 20px;"></div>
                       <?php include __DIR__.'/../includes/forms/adult.php'; ?>
                     </div>
 
                     <div class="col-md-12">
+
                       <button class="btn btn-primary btn-lg" id="submitBtn">Add Participants</button>
                     </div>
                   </form>
@@ -163,6 +169,7 @@
 
 
                     <div id="undergrad" class="forms">
+                      <div style="height: 20px;"></div>
                       <?php include __DIR__.'/../includes/forms/ud.php'; ?>
                     </div>
 
