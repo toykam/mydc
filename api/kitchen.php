@@ -7,6 +7,9 @@ header("Content-Type: application/json");
 
 // var_dump($_POST);
 
+$food = 1;
+$date = date('y-m-d h:s');
+
 try {
     $headers = getallheaders();
     
@@ -14,7 +17,7 @@ try {
     
         $tokenData = verifyToken($headers['token'] ?? $headers['Token']);
     
-        if (in_array($tokenData['department'], ['admin', 'security'])) {
+        if (in_array($tokenData['department'], ['admin', 'kitchen'])) {
     
             if (!isset($_POST['user_token'])) {
                 $response = [
@@ -37,13 +40,34 @@ try {
                     'message' => "This QRCode have not been assigned to anyone, something fishy is going on!!!"
                 ];
             } else {
-                $response = [
-                    'status' => true,
-                    'message' => $participantData['first_name'].' '.$participantData['last_name']." Scanned for food successfully"
-                ];
+                $eaten = $db->get('kitchen', [
+                    "date_time[<>]" => [date("Y-m-d 07:00"), date("Y-m-d 12:00")],
+                    "food" => $food,
+                    "participant_id" => $participantData['id']
+                ]);
+                if ($eaten) {
+                    $response = [
+                        'status' => false,
+                        'message' => $participantData['first_name'].' '.$participantData['last_name']." have eaten already"
+                    ];
+                } else {
+                    $db->insert("kitchen", [
+                        "participant_id" => $participantData['id'],
+                        "date_time" => date("Y-m-d H:i:s"),
+                        "food" => $food
+                    ]);
+
+                    $response = [
+                        'status' => true,
+                        'message' => $participantData['first_name'].' '.$participantData['last_name']." Scanned for food successfully"
+                    ];
+                }
+                // $response = [
+                //     'status' => true,
+                //     'message' => $participantData['first_name'].' '.$participantData['last_name']." Scanned for food successfully"
+                // ];
             }
-
-
+            
         } else {
             $response = [
                 'status' => false,
