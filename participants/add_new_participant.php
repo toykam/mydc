@@ -76,14 +76,15 @@
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                   <form msg="Registering new user" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
                     <input name="reg_user" value="1" type="hidden"/>
+                    <input name="category" value="kiddies" type="hidden"/>
                     <div class="col-sm-12 form-group">
-                      <label>Select Category</label>
+                      <!-- <label>Select Category</label>
                       <select name="category" class="form-control" id="category">
                         <option>Select category</option>
-                        <?php foreach($categories as $key => $category)   { ?>
-                          <option value="<?php echo strtolower($category['name']); ?>"><?php echo $category['name'] ?></option>
-                        <?php } ?>
-                      </select>
+                        <?php // foreach($categories as $key => $category)   { ?>
+                          <option value="<?php // echo strtolower($category['name']); ?>"><?php // echo $category['name'] ?></option>
+                        <?php // } ?>
+                      </select> -->
                     </div>
 
                     <div id="kiddies" class="forms">
@@ -99,15 +100,16 @@
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                   <form msg="Registering new user" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
                     <input name="reg_user" value="1" type="hidden"/>
-                    <div class="col-sm-12 form-group">
+                    <input name="category" value="teenagers" type="hidden"/>
+                    <!-- <div class="col-sm-12 form-group">
                       <label>Select Category</label>
                       <select name="category" class="form-control" id="category">
                         <option>Select category</option>
-                        <?php foreach($categories as $key => $category) { ?>
-                          <option value="<?php echo strtolower($category['name']); ?>"><?php echo $category['name'] ?></option>
-                        <?php } ?>
+                        <?php // foreach($categories as $key => $category) { ?>
+                          <option value="<?php // echo strtolower($category['name']); ?>"><?php // echo $category['name'] ?></option>
+                        <?php // } ?>
                       </select>
-                    </div>
+                    </div> -->
 
                     <div id="teenagers" class="forms">
                       <?php include __DIR__.'/../includes/forms/teen.php'; ?>
@@ -122,15 +124,16 @@
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                   <form msg="Registering new user" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
                     <input name="reg_user" value="1" type="hidden"/>
-                    <div class="col-sm-12 form-group">
+                    <input name="category" value="adult" type="hidden"/>
+                    <!-- <div class="col-sm-12 form-group">
                       <label>Select Category</label>
                       <select name="category" class="form-control" id="category">
                         <option>Select category</option>
-                        <?php foreach($categories as $key => $category) { ?>
-                          <option value="<?php echo strtolower($category['name']); ?>"><?php echo $category['name'] ?></option>
-                        <?php } ?>
+                        <?php // foreach($categories as $key => $category) { ?>
+                          <option value="<?php // echo strtolower($category['name']); ?>"><?php // echo $category['name'] ?></option>
+                        <?php // } ?>
                       </select>
-                    </div>
+                    </div> -->
 
 
                     <div id="adult" class="forms">
@@ -146,15 +149,17 @@
                 <div class="tab-pane fade" id="undergraduate" role="tabpanel" aria-labelledby="undergraduate-tab">
                   <form msg="Registering new user" class="form row" action="<?php echo site_url('/includes/submitManager.php'); ?>" method="POST">
                     <input name="reg_user" value="1" type="hidden"/>
-                    <div class="col-sm-12 form-group">
+                    <!-- <div class="col-sm-12 form-group">
                       <label>Select Category</label>
                       <select name="category" class="form-control" id="category">
                         <option>Select category</option>
-                        <?php foreach($categories as $key => $category) { ?>
-                          <option value="<?php echo strtolower($category['name']); ?>"><?php echo $category['name'] ?></option>
-                        <?php } ?>
+                        <?php // foreach($categories as $key => $category) { ?>
+                          <option value="<?php // echo strtolower($category['name']); ?>"><?php // echo $category['name'] ?></option>
+                        <?php // } ?>
                       </select>
-                    </div>
+                    </div> -->
+
+                    <input name="category" value="undergraduate" type="hidden"/>
 
 
                     <div id="undergrad" class="forms">
