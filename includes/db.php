@@ -18,4 +18,5 @@ $db = new Medoo([
     'password' => '(s8pnhLCIuja',
 ]);
 
+
 ?>
