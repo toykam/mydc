@@ -1,16 +1,13 @@
 <?php
 require __DIR__.'/sessionManager.php';
 function site_url($path = '') {
-    // var_dump($_SERVER[]);
-    return 'https://'.$_SERVER['HTTP_HOST'].''.$path;
-    // return 'https://ba50-2a0d-5600-41-9000-00-1925.ngrok.io/mydc'.$path;
-    // return 'http://localhost/mydc'.$path;
+    return 'https://'.$_SERVER['HTTP_HOST'].'/mydc'.$path;
 }
 
 function isLoggedIn() {
     global $sessionManager;
     // var_dump($_SERVER);
-    $isNotLogin = $_SERVER['REQUEST_URI'] != "/mydc/login.php";
+    $isNotLogin = $_SERVER['REQUEST_URI'] != "/login.php";
     if ($isNotLogin) {
         if ($sessionManager->get('admin_loggedin') != true) {
             $sessionManager->setFlash('error_message', "Please login to continue");
