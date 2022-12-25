@@ -1,7 +1,10 @@
 <?php
 require __DIR__.'/sessionManager.php';
 function site_url($path = '') {
-    return 'https://'.$_SERVER['HTTP_HOST'].'/mydc'.$path;
+    if ($_SERVER['HTTP_HOST'] == 'localhost') {
+        return 'https://'.$_SERVER['HTTP_HOST'].'/mydc'.$path;
+    }
+    return 'https://'.$_SERVER['HTTP_HOST'].$path;
 }
 
 function isLoggedIn() {
