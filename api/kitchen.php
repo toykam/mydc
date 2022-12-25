@@ -11,7 +11,7 @@ header("Content-Type: application/json");
 // const LAUNCH = 1002;
 // const DINNER = 1003;
 
-$food = 1;
+$food = 2;
 $date = date('y-m-d h:s');
 
 try {
@@ -47,7 +47,7 @@ try {
                 ];
             } else {
                 $eaten = $db->get('kitchen', "*", [
-                    "date_time[<>]" => [date("Y-m-d 07:00"), date("Y-m-d 12:00")],
+                    "date_time[<>]" => [date("Y-m-d 14:00"), date("Y-m-d 17:30")],
                     "food" => $food,
                     "participant_id" => $participantData['id']
                 ]);
