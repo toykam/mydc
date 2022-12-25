@@ -7,6 +7,8 @@ function site_url($path = '') {
     return 'https://'.$_SERVER['HTTP_HOST'].$path;
 }
 
+// what ya mean ?? 
+
 function isLoggedIn() {
     global $sessionManager;
     // var_dump($_SERVER);
