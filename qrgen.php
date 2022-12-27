@@ -6,7 +6,7 @@ require __DIR__ . "/vendor/autoload.php";
 require __DIR__ . "/includes/jwt_manager.php";
 
 
-for ($i=1; $i < 1001; $i++) {
+for ($i=1002; $i < 1032; $i++) {
     
     // echo $jwt;
 
