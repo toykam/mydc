@@ -47,7 +47,7 @@ try {
                 ];
             } else {
                 $eaten = $db->get('kitchen', "*", [
-                    "date_time[<>]" => [date("Y-m-d 19:00"), date("Y-m-d 23:59")],
+                    "date_time[<>]" => [date("Y-m-d 14:00"), date("Y-m-d 19:00")],
                     "food" => $food,
                     "participant_id" => $participantData['id']
                 ]);
