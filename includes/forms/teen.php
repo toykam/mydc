@@ -57,23 +57,23 @@
         <h4>Educational Information</h4>
 
         <div class="form-group">
-            <input type="text" name="institution" class="form-control" placeholder="Participant's School"/>
+            <input type="text" name="institution" class="form-control" placeholder="Participant's School" value="<?php echo ($participantData) ? $participantData['institution'] : ''; ?>"/>
         </div>
 
         <div class="form-group class teenagers">
             <select name="class" class="form-control teenagers">
                 <option>Select Participant's Class</option>
-                <option value="jss 1">JSS 1</option>
-                <option value="jss 2">JSS 2</option>
-                <option value="jss 3">JSS 3</option>
-                <option value="sss 1">SSS 1</option>
-                <option value="sss 2">SSS 2</option>
-                <option value="sss 3">SSS 3</option>
+                <option <?php echo (strtolower($class) == 'jss 1') ? 'selected' : ''; ?> value="jss 1">JSS 1</option>
+                <option <?php echo (strtolower($class) == 'jss 2') ? 'selected' : ''; ?> value="jss 2">JSS 2</option>
+                <option <?php echo (strtolower($class) == 'jss 3') ? 'selected' : ''; ?> value="jss 3">JSS 3</option>
+                <option <?php echo (strtolower($class) == 'sss 1') ? 'selected' : ''; ?> value="sss 1">SSS 1</option>
+                <option <?php echo (strtolower($class) == 'sss 1') ? 'selected' : ''; ?> value="sss 2">SSS 2</option>
+                <option <?php echo (strtolower($class) == 'sss 1') ? 'selected' : ''; ?> value="sss 3">SSS 3</option>
             </select>
         </div>
 
         <div class="form-group class teenagers">
-            <input type="text" class="form-control teenagers" name="occupation" placeholder="Participants Occupation" />
+            <input type="text" class="form-control teenagers" name="occupation" placeholder="Participants Occupation" value="<?php echo ($participantData) ? $participantData['occupation'] : ''; ?>" />
         </div>
     </div>
     <hr/>
