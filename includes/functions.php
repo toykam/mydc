@@ -2,7 +2,7 @@
 require __DIR__.'/sessionManager.php';
 function site_url($path = '') {
     if ($_SERVER['HTTP_HOST'] == 'localhost') {
-        return 'https://'.$_SERVER['HTTP_HOST'].'/mydc'.$path;
+        return 'http://'.$_SERVER['HTTP_HOST'].'/mydc'.$path;
     }
     return 'https://'.$_SERVER['HTTP_HOST'].$path;
 }

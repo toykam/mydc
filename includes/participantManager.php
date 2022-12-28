@@ -21,6 +21,7 @@ function createNewParticipant($participantData) {
 
 function deleteParticipant($where) {
     global $db;
+    return $db->delete('participants', $where);
 }
 
 function updateParticipant($data, $where) {
