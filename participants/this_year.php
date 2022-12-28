@@ -55,6 +55,7 @@
                       <th>Phone Number</th>
                       <th>Category</th>
                       <th>gender</th>
+                      <th>QRCode</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -66,6 +67,7 @@
                       <th>Phone Number</th>
                       <th>Category</th>
                       <th>gender</th>
+                      <th>QRCode</th>
                       <th>Action</th>
                     </tr>
                   </tfoot>
@@ -79,6 +81,7 @@
                         <td><?php echo $participant['phone_number']; ?></td>
                         <td><?php echo $participant['category']; ?></td>
                         <td><?php echo $participant['gender']; ?></td>
+                        <td><?php echo $participant['qrcode']; ?></td>
                         <td>
                         <div class="dropdown">
                           <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
